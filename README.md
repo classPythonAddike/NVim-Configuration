@@ -3,36 +3,25 @@ This repository contains my Neovim-configurations. Please note, that a lot of th
 
 ## Plugins Used
 
-Syntax Support:
-- [vim-polyglot](https://github.com/sheerun/vim-polyglot)
+Syntax Support: [vim-polyglot](https://github.com/sheerun/vim-polyglot)
 
-File Explorer:
-- [NERDTree](https://github.com/scrooloose/NERDTree)
+File Explorer: [NERDTree](https://github.com/scrooloose/NERDTree)
 
-Highlighting Files in the Explorer:
-- [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
+Highlighting Files in the Explorer: [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
 
-Show Git status in the Explorer
-- [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
+Show Git status in the Explorer: [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
 
-Auto pairs for '(' '\[' '{', etc.:
-- [auto-pairs](https://github.com/)
+Auto pairs for '(' '\[' '{', etc: [auto-pairs](https://github.com/)
 
-Themes:
-- [gruvbox-material](https://github.com/sainnhe/gruvbox-material)
-- [onedark](https://github.com/joshdick/onedark.vim)
+Themes: [gruvbox-material](https://github.com/sainnhe/gruvbox-material) and [onedark](https://github.com/joshdick/onedark.vim)
 
-Autocomplete:
-- [coc](https://github.com/neoclide/coc.nvim)
+Autocomplete: [coc](https://github.com/neoclide/coc.nvim)
 
-Status Line (and File Tabs):
-- [vim-airline](https://github.com/vim-airline/vim-airline)
+Status Line (and File Tabs): [vim-airline](https://github.com/vim-airline/vim-airline)
 
-Themes for the Status Line:
-- [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+Themes for the Status Line: [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 
-Go Support:
-[vim-go](https://github.com/fatih/vim-go)
+Go Support: [vim-go](https://github.com/fatih/vim-go)
 
 ## NVim
 
