@@ -97,7 +97,7 @@ let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
 let g:NERDTreeSyntaxEnabledDefaultExactMatches = ['.git', '.gitignore']
 
 let s:brown = "905532"
-let s:aqua =  "3AFFDB"
+let s:aqua =  "0099CC"
 let s:blue = "689FB6"
 let s:lightPurple = "834F79"
 let s:yellow = "FFCC00"
@@ -117,6 +117,8 @@ let g:NERDTreeExtensionHighlightColor['md'] = s:orange
 let g:NERDTreeExtensionHighlightColor['yml'] = s:brown
 let g:NERDTreeExtensionHighlightColor['yaml'] = s:brown
 let g:NERDTreeExtensionHighlightColor['gitignore'] = s:lightGreen
+let g:NERDTreeExtensionHighlightColor['mod'] = s:green
+let g:NERDTreeExtensionHighlightColor['sum'] = s:green
 
 let g:NERDTreeExactMatchHighlightColor = {}
 let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:lightGreen " sets the color for .gitignore files
