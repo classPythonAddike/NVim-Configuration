@@ -9,6 +9,8 @@ File Explorer: [NERDTree](https://github.com/scrooloose/NERDTree)
 
 Highlighting Files in the Explorer: [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
 
+File Icons in the Explorer: [ryanoasis/vim-devicons](https://github.com/ryanoasis/vim-devicons)
+
 Show Git status in the Explorer: [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
 
 Auto pairs for '(' '\[' '{', etc: [auto-pairs](https://github.com/)
