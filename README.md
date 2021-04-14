@@ -1,5 +1,5 @@
 # NVim-Configuration
-This repository contains my Neovim-configurations. Please note, that a lot of the code in my [init.vim](/init.vim) is take from the documentation, and from [@Binx's init.vim](https://github.com/Binx-Codes/NeoVim-config). Also, I primarily use Neovim for Golang Projects, so a lot of my configurations are centered towards the language.
+This repository contains my Neovim-configurations. Please note, that a lot of the code in my [init.vim](/init.vim) is take from the documentation, and from [@Binx's init.vim](https://github.com/Binx-Codes/NeoVim-config) (which has changed a lot now). Also, I primarily use Neovim for Golang Projects, so a lot of my configurations are centered towards the language.
 
 ## Plugins Used
 
