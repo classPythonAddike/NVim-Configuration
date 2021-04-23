@@ -17,7 +17,7 @@ This repository contains my Neovim-configurations. Please note, that a lot of th
 
 7. Themes: [gruvbox-material](https://github.com/sainnhe/gruvbox-material) and [onedark](https://github.com/joshdick/onedark.vim)
 
-8. Autocomplete: [coc](https://github.com/neoclide/coc.nvim)
+8. Language Servers: [coc](https://github.com/neoclide/coc.nvim)
 
 9. Status Line (and File Tabs): [vim-airline](https://github.com/vim-airline/vim-airline)
 
