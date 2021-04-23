@@ -13,7 +13,7 @@ This repository contains my Neovim-configurations. Please note, that a lot of th
 
 5. Show Git status in the Explorer: [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
 
-6. Auto pairs for '(' '\[' '{', etc: [auto-pairs](https://github.com/)
+6. Auto pairs for '(' '\[' '{', etc: [auto-pairs](https://github.com/jiangmiao/auto-pairs)
 
 7. Themes: [gruvbox-material](https://github.com/sainnhe/gruvbox-material) and [onedark](https://github.com/joshdick/onedark.vim)
 
