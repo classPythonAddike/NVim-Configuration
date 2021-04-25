@@ -1,5 +1,5 @@
 # NVim-Configuration
-This repository contains my Neovim-configurations. Please note, that a lot of the code in my [init.vim](/init.vim) is take from the documentation, and from [@Binx's init.vim](https://github.com/Binx-Codes/NeoVim-config) (which has changed a lot now). Also, I primarily use Neovim for Golang Projects, so a lot of my configurations are centered towards the language.
+This repository contains my NeoVim-configurations. Please note, that a lot of the code in my [init.vim](/init.vim) is take from the documentation, and from [@Binx's init.vim](https://github.com/Binx-Codes/NeoVim-config) (which has changed a lot now). Also, I primarily use Neovim for Golang and Vue Projects, so a lot of my configurations are centered towards those two languages.
 
 ## Plugins Used
 
@@ -24,6 +24,10 @@ This repository contains my Neovim-configurations. Please note, that a lot of th
 10. Themes for the Status Line: [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 
 11. Go Support: [vim-go](https://github.com/fatih/vim-go)
+
+12. Vue Syntax Highlighting: [posva/vim-vue](https://github.com/posva/vim-vue)
+
+13. Autoclose HTML Tags: [alvan/vim-closetag](https://github.com/alvan/vim-closetag)
 
 Other than these, I also use two plugins with Coc, which are not listed in my [init.vim](/init.vim) -
 1. [coc-go](https://github.com/josa42/coc-go): For the Gopls language server
