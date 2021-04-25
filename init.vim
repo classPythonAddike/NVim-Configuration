@@ -26,46 +26,56 @@ Plug 'vim-airline/vim-airline-themes'
 " Go Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Colors CSS
+Plug 'ap/vim-css-color'
+
+" Syntax Highlighting for Vue files
+Plug 'posva/vim-vue'
+
+" Autoclose HTML Tags
+Plug 'alvan/vim-closetag'
+
 call plug#end()
 
 " ------------------------------ ColorScheme -----------------------------
 
+
 " Remove background in terminal
 if (has("autocmd") && !has("gui_running"))
-	augroup colorset
-		autocmd!
-		let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7"  }
-		autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white  })
-	augroup END
+  augroup colorset
+	autocmd!
+	let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7"  }
+	autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white  })
+  augroup END
 endif
 
 if $term == 'vtpcon'
-	colorscheme onedark " ColorScheme for terminal
+  colorscheme onedark " ColorScheme for terminal
+  let g:onedark_hide_endofbuffer=1
+  let g:onedark_terminal_italics=1
+  let g:onedark_termcolors=256
+
+  " checks if your terminal has 24-bit color support
+  if (has("termguicolors"))
+	set termguicolors
+	hi LineNr ctermbg=NONE guibg=NONE
+	" Don't draw a bg colour, let the image show
+  endif
 else
-	colorscheme gruvbox-material " ColorScheme for nvim-qt
+  colorscheme gruvbox-material " ColorScheme for nvim-qt
 endif
 
 " Comments in italic
 hi Comment cterm=italic
-let g:onedark_hide_endofbuffer=1
-let g:onedark_terminal_italics=1
-let g:onedark_termcolors=256
 
 syntax on
-
-" checks if your terminal has 24-bit color support
-if (has("termguicolors"))
-	set termguicolors
-	hi LineNr ctermbg=NONE guibg=NONE
-	" Don't draw a bg colour, let the image show
-endif
 
 " Allow plugins to load based on filetypes
 filetype plugin on
 " Display line numbers
 set nu
 " Set tabsize to 4
-set tabstop=4
+set tabstop=8
 
 " ----------------------------- File Explorer --------------------------
 
@@ -87,33 +97,6 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 let g:NERDTreeSyntaxEnabledDefaultExactMatches = ['.git', '.gitignore']
 
-"let s:brown = "905532"
-"let s:aqua =  "2F9096"
-"let s:blue = "689FB6"
-"let s:lightPurple = "834F79"
-"let s:yellow = "FFCC00"
-"let s:orange = "D4843E"
-"let s:pink = "CB6F6F"
-"let s:green = "8FAA54"
-"let s:lightGreen = "31B53E"
-"let s:white = "FFFFFF"
-
-"let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid errors
-"let g:NERDTreeExtensionHighlightColor['css'] = s:blue " sets the color of css files to blue
-"let g:NERDTreeExtensionHighlightColor['py'] = s:yellow
-"let g:NERDTreeExtensionHighlightColor['go'] = s:aqua
-"let g:NERDTreeExtensionHighlightColor['html'] = s:lightPurple
-"let g:NERDTreeExtensionHighlightColor['js'] = s:blue
-"let g:NERDTreeExtensionHighlightColor['md'] = s:orange
-"let g:NERDTreeExtensionHighlightColor['yml'] = s:brown
-"let g:NERDTreeExtensionHighlightColor['yaml'] = s:brown
-"let g:NERDTreeExtensionHighlightColor['gitignore'] = s:lightGreen
-"let g:NERDTreeExtensionHighlightColor['mod'] = s:green
-"let g:NERDTreeExtensionHighlightColor['sum'] = s:green
-
-"let g:NERDTreeExactMatchHighlightColor = {}
-"let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:lightGreen " sets the color for .gitignore files
-
 " -----------------------  Git Status in File Explorer ---------------------
 
 let g:NERDTreeGitStatusUseNerdFonts = 1 " Use nerd fonts along with a predefined map
@@ -132,8 +115,18 @@ let g:go_highlight_function_parameters = 1 " Highlight parameters
 let g:go_highlight_fields = 1 " Highlight struct and interface fields
 let g:go_highlight_function_calls = 1 " Highlight function calls
 
- set completeopt-=preview " Close preview window when autocompleting
+set completeopt-=preview " Close preview window when autocompleting
 
  " ------------------------ vim-devicon ---------------------------
  
- let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
+
+" ------------------- vim-closetag ------------------
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
+" Set filetypes for HTML tag completion
+
+" ------------------- Vim-Vue Syntax Highlighting ------------------------
+
+let g:vue_pre_processors = 'detect_on_enter'
+" Don't load all processors, only the required ones
