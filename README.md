@@ -37,16 +37,22 @@ These can be installed with `:CocInstall coc-go` and `:CocInstall coc-cord` resp
 
 I used to have [coc-vetur](https://github.com/neoclide/coc-vetur), but uninstalled it due to it causing lags in my NVim. You are welcome to try it out though, and let me know if it works fine for you!
 
-## NVim (With Windows Terminal)
+## Go Projects With NVim (In Windows Terminal)
 
 <p align="center">
   <img src="/nvim_image.png" height="480" />
 </p>
 
+## Vue Projects With NVim (In Windows Terminal)
+
+<p align="center">
+ <img src="/nvim_vue_image.png" height="480" />
+</p>
+
 ## Background Image used
 
 <p align="center">
-  <img src="/BgImage.png" height="350" />
+  <img src="/BgImage.png" height="400" />
 </p>
 
 ## NVim - Gui
