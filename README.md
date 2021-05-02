@@ -15,7 +15,7 @@ This repository contains my NeoVim-configurations. Please note, that a lot of th
 
 6. Auto pairs for '(' '\[' '{', etc: [auto-pairs](https://github.com/jiangmiao/auto-pairs)
 
-7. Themes: [gruvbox-material](https://github.com/sainnhe/gruvbox-material) and [onedark](https://github.com/joshdick/onedark.vim)
+7. Themes: [gruvbox-material](https://github.com/sainnhe/gruvbox-material), [nord-theme](https://github.com/arcticicestudio/nord-vim) and [onedark](https://github.com/joshdick/onedark.vim)
 
 8. Language Servers: [coc](https://github.com/neoclide/coc.nvim)
 
