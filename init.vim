@@ -15,6 +15,7 @@ Plug 'jiangmiao/auto-pairs'
 " Themes
 Plug 'sainnhe/gruvbox-material'
 Plug 'joshdick/onedark.vim'
+Plug 'arcticicestudio/nord-vim'
 
 " Intellisense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -39,21 +40,12 @@ call plug#end()
 
 " ------------------------------ ColorScheme -----------------------------
 
-
-" Remove background in terminal
-if (has("autocmd") && !has("gui_running"))
-  augroup colorset
-	autocmd!
-	let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7"  }
-	autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white  })
-  augroup END
-endif
-
 if $term == 'vtpcon'
   colorscheme onedark " ColorScheme for terminal
   let g:onedark_hide_endofbuffer=1
   let g:onedark_terminal_italics=1
   let g:onedark_termcolors=256
+
 
   " checks if your terminal has 24-bit color support
   if (has("termguicolors"))
@@ -61,12 +53,24 @@ if $term == 'vtpcon'
 	hi LineNr ctermbg=NONE guibg=NONE
 	" Don't draw a bg colour, let the image show
   endif
+  
+  " Remove background in terminal
+  if (has("autocmd") && !has("gui_running"))
+    augroup colorset
+	  autocmd!
+	  let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7"  }
+	  autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white  })
+    augroup END
+  endif
+
 else
-  colorscheme gruvbox-material " ColorScheme for nvim-qt
+  colorscheme nord " ColorScheme for nvim-qt
 endif
 
 " Comments in italic
 hi Comment cterm=italic
+
+" -------------------------- General ---------------------------
 
 syntax on
 
@@ -75,7 +79,44 @@ filetype plugin on
 " Display line numbers
 set nu
 " Set tabsize to 4
-set tabstop=8
+set tabstop=4
+
+" ----------------------- Commands -------------------------
+
+command BuildGoProject :!go build .
+command RunGoProject :!go run .
+command TestGoProject :!go test .
+
+command CleanGoProjectVerbose :!go clean -x
+command CleanGoProject :!go clean
+
+command GolangDependencies :!go list .
+command GolangVersion :!go version
+
+command BuildVueApp :!npm run build
+
+" --------------------------------- Remaps -----------------------------
+
+nnoremap <F2> :w<CR> :bprevious<CR>
+nnoremap <F3> :w<CR> :bnext<CR>
+nnoremap <F4> :w<CR> :blast<CR>
+nnoremap <C-Q> :w<CR> :bdelete<CR>
+
+function Build()
+  if &ft == "go"
+    :BuildGoProject
+  elseif &ft == "vue"
+    :BuildVueApp
+  endif
+endfunction
+
+nnoremap <F5> :w<CR> :call Build()<CR>
+
+nnoremap <F8> :w<CR> :NERDTreeFocus<CR>
+nnoremap <F9> :w<CR> :NERDTreeRefreshRoot<CR>
+
+inoremap <C-A> <Esc> ggVG
+nnoremap <C-A> ggVG
 
 " ----------------------------- File Explorer --------------------------
 
@@ -104,8 +145,6 @@ let g:NERDTreeGitStatusUseNerdFonts = 1 " Use nerd fonts along with a predefined
 " --------------------------- Airline ----------------------------
 
 let g:airline#extensions#tabline#enabled = 1 " Show airline tabs
-nnoremap <TAB> :bnext<CR>
-" Cycle tabs forward
 
 " --------------------------- Vim - Go ----------------------------
 
@@ -130,3 +169,18 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
 
 let g:vue_pre_processors = 'detect_on_enter'
 " Don't load all processors, only the required ones
+
+" --------------------- Nord ColorScheme ------------------------
+
+let g:nord_cursor_line_number_background = 1 " Doesnt work tho
+let g:nord_bold_vertical_split_line = 1
+let g:nord_italic = 1
+let g:nord_bold = 1
+let g:nord_underline = 1
+
+let g:nord_italic_comments = 1
+
+" Unfortunately I couldn't find a way to not draw the background color with
+" nord. So my way around it was to first use onedark, which would not draw a
+" background, and then change to nord after that
+:command NordTheme :colorscheme nord
