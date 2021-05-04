@@ -1,8 +1,5 @@
 call plug#begin(stdpath('data')) " Plugins
 
-" Syntax Support
-Plug 'sheerun/vim-polyglot'
-
 " File Explorer
 Plug 'scrooloose/NERDTree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Highlight files in the explorer based on extension
@@ -13,7 +10,6 @@ Plug 'ryanoasis/vim-devicons' " Show icons in front of files
 Plug 'jiangmiao/auto-pairs'
 
 " Themes
-Plug 'sainnhe/gruvbox-material'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 
@@ -31,10 +27,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ap/vim-css-color'
 
 " Syntax Highlighting for Vue files
-Plug 'posva/vim-vue'
+" Plug 'posva/vim-vue'
 
 " Autoclose HTML Tags
-Plug 'alvan/vim-closetag'
+" Plug 'alvan/vim-closetag'
 
 call plug#end()
 
@@ -95,6 +91,16 @@ command GolangVersion :!go version
 
 command BuildVueApp :!npm run build
 
+command BuildRustApp :!cargo build
+
+function InitialiseRustProject()
+  :!cargo init
+  :NERDTreeRefreshRoot
+  :NERDTreeFocus
+endfunction
+
+command InitRustProject :call InitialiseRustProject()
+
 " --------------------------------- Remaps -----------------------------
 
 nnoremap <F2> :w<CR> :bprevious<CR>
@@ -107,6 +113,8 @@ function Build()
     :BuildGoProject
   elseif &ft == "vue"
     :BuildVueApp
+  elseif &ft == "rust"
+    :BuildRustApp
   endif
 endfunction
 
@@ -120,10 +128,6 @@ nnoremap <C-A> ggVG
 
 " ----------------------------- File Explorer --------------------------
 
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '~'
-let NERDTreeShowHidden=1 " Show hidden files
-
 " Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
@@ -136,7 +140,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " let g:NERDTreeLimitedSyntax = 1
 " Use this in case of lags in the file explorer
 
-let g:NERDTreeSyntaxEnabledDefaultExactMatches = ['.git', '.gitignore']
+let g:NERDTreeSyntaxEnabledDefaultExactMatches = ['.gitignore']
 
 " -----------------------  Git Status in File Explorer ---------------------
 
@@ -154,25 +158,22 @@ let g:go_highlight_function_parameters = 1 " Highlight parameters
 let g:go_highlight_fields = 1 " Highlight struct and interface fields
 let g:go_highlight_function_calls = 1 " Highlight function calls
 
-set completeopt-=preview " Close preview window when autocompleting
-
  " ------------------------ vim-devicon ---------------------------
  
 let g:airline_powerline_fonts = 1
 
 " ------------------- vim-closetag ------------------
 
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
+" let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
 " Set filetypes for HTML tag completion
 
 " ------------------- Vim-Vue Syntax Highlighting ------------------------
 
-let g:vue_pre_processors = 'detect_on_enter'
+" let g:vue_pre_processors = 'detect_on_enter'
 " Don't load all processors, only the required ones
 
 " --------------------- Nord ColorScheme ------------------------
 
-let g:nord_cursor_line_number_background = 1 " Doesnt work tho
 let g:nord_bold_vertical_split_line = 1
 let g:nord_italic = 1
 let g:nord_bold = 1

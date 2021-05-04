@@ -2,14 +2,7 @@
 	"diagnostic.warningSign": "",
 	"diagnostic.errorSign": "",
 	"diagnostic.infoSign": "",
-	"languageserver": {
-		"golang": {
-			"command": "gopls",
-			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-			"filetypes": ["go"],
-			"disableWorkspaceFolders": false,
-		}
-	},
+	"languageserver": {},
 	"suggest.completionItemKindLabels": {
 		"method": "  ",
 		"function": "  ",
@@ -36,5 +29,13 @@
 		"constructor": "  ",
 		"value": "  ",
 		"enumMember": "  "
-	}
+	},
+	"coc.preferences.formatOnSaveFiletypes": [
+		"javascript",
+		"md",
+		"json",
+		"vue",
+		"rust"
+	],
+	"vetur.experimental.templateInterpolationService": true
 }
