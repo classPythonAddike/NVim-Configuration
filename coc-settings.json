@@ -35,7 +35,15 @@
 		"md",
 		"json",
 		"vue",
-		"rust"
+		"rust",
+		"python",
+		"go"
 	],
-	"vetur.experimental.templateInterpolationService": true
+	"vetur.format.options.tabSize": 2,
+	"vetur.languageFeatures.updateImportOnFileMove": false,
+	"vetur.validation.interpolation": false,
+	"vetur.languageFeatures.codeActions": false,
+	"vetur.trace.server": "messages",
+	"vetur.format.options.useTabs": true,
+	"vetur.completion.autoImport": false
 }
