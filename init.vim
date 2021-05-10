@@ -3,7 +3,6 @@ call plug#begin(stdpath('data')) " Plugins
 " File Explorer
 Plug 'scrooloose/NERDTree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Highlight files in the explorer based on extension
-Plug 'Xuyuanp/nerdtree-git-plugin' " Highlight git plugins
 Plug 'ryanoasis/vim-devicons' " Show icons in front of files
 
 " Auto pairs for '(' '[' '{'
@@ -27,14 +26,13 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ap/vim-css-color'
 
 " Syntax Highlighting for Vue files
-" Plug 'posva/vim-vue'
-
-" Autoclose HTML Tags
-" Plug 'alvan/vim-closetag'
+Plug 'posva/vim-vue'
 
 call plug#end()
 
 " ------------------------------ ColorScheme -----------------------------
+
+let g:vue_pre_processors = 'detect_on_enter' "Syntax highlighting for vue files
 
 if $term == 'vtpcon'
   colorscheme onedark " ColorScheme for terminal
@@ -42,56 +40,47 @@ if $term == 'vtpcon'
   let g:onedark_terminal_italics=1
   let g:onedark_termcolors=256
 
-
   " checks if your terminal has 24-bit color support
   if (has("termguicolors"))
-	set termguicolors
-	hi LineNr ctermbg=NONE guibg=NONE
+  	set termguicolors
+	  hi LineNr ctermbg=NONE guibg=NONE
 	" Don't draw a bg colour, let the image show
   endif
   
   " Remove background in terminal
   if (has("autocmd") && !has("gui_running"))
     augroup colorset
-	  autocmd!
-	  let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7"  }
-	  autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white  })
+	    autocmd!
+	    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7"  }
+	    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white  })
     augroup END
   endif
 
 else
-  colorscheme nord " ColorScheme for nvim-qt
+  if &ft == "python"
+    colorscheme slate
+  else
+    colorscheme nord " ColorScheme for nvim-qt
+  endif
 endif
 
 " Comments in italic
-hi Comment cterm=italic
+" hi Comment cterm=italic
 
 " -------------------------- General ---------------------------
 
-syntax on
-
 " Allow plugins to load based on filetypes
 filetype plugin on
+syntax on
 " Display line numbers
 set nu
-" Set tabsize to 4
-set tabstop=4
+" Set indentation to 2 spaces, and enable smart indentation
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " ----------------------- Commands -------------------------
 
-command BuildGoProject :!go build .
-command RunGoProject :!go run .
 command TestGoProject :!go test .
-
-command CleanGoProjectVerbose :!go clean -x
-command CleanGoProject :!go clean
-
-command GolangDependencies :!go list .
-command GolangVersion :!go version
-
-command BuildVueApp :!npm run build
-
-command BuildRustApp :!cargo build
+command CleanGoProject :!go clean -x
 
 function InitialiseRustProject()
   :!cargo init
@@ -103,26 +92,37 @@ command InitRustProject :call InitialiseRustProject()
 
 " --------------------------------- Remaps -----------------------------
 
-nnoremap <F2> :w<CR> :bprevious<CR>
-nnoremap <F3> :w<CR> :bnext<CR>
-nnoremap <F4> :w<CR> :blast<CR>
-nnoremap <C-Q> :w<CR> :bdelete<CR>
+nnoremap <F2> :bprevious<CR>
+nnoremap <F3> :bnext<CR>
+nnoremap <F4> :blast<CR>
+nnoremap <C-Q> :bdelete<CR>
 
-function Build()
-  if &ft == "go"
-    :BuildGoProject
-  elseif &ft == "vue"
-    :BuildVueApp
-  elseif &ft == "rust"
-    :BuildRustApp
+function Run()
+  if &ft == "python"
+    :ter python %
+  elseif &ft == "go"
+    :ter go run .
+  else
+    :echom "No run configurations set for filetype '" . &ft . "'!"
   endif
 endfunction
 
-nnoremap <F5> :w<CR> :call Build()<CR>
+function Build()
+  if &ft == "go"
+    :!go build
+  elseif &ft == "vue"
+    :!npm run build
+  elseif &ft == "rust"
+    :!cargo build
+  else
+    :echom "No build configurations set for filetype '" . &ft . "'!"
+  endif
+endfunction
 
-nnoremap <F8> :w<CR> :NERDTreeFocus<CR>
-nnoremap <F9> :w<CR> :NERDTreeRefreshRoot<CR>
-
+nnoremap <F5> :call Build()<CR>
+nnoremap <F6> :call Run()<CR>
+nnoremap <F8> :NERDTreeFocus<CR>
+nnoremap <F9> :NERDTreeRefreshRoot<CR>
 inoremap <C-A> <Esc> ggVG
 nnoremap <C-A> ggVG
 
@@ -142,10 +142,6 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 let g:NERDTreeSyntaxEnabledDefaultExactMatches = ['.gitignore']
 
-" -----------------------  Git Status in File Explorer ---------------------
-
-let g:NERDTreeGitStatusUseNerdFonts = 1 " Use nerd fonts along with a predefined map
-
 " --------------------------- Airline ----------------------------
 
 let g:airline#extensions#tabline#enabled = 1 " Show airline tabs
@@ -162,23 +158,12 @@ let g:go_highlight_function_calls = 1 " Highlight function calls
  
 let g:airline_powerline_fonts = 1
 
-" ------------------- vim-closetag ------------------
-
-" let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
-" Set filetypes for HTML tag completion
-
-" ------------------- Vim-Vue Syntax Highlighting ------------------------
-
-" let g:vue_pre_processors = 'detect_on_enter'
-" Don't load all processors, only the required ones
-
 " --------------------- Nord ColorScheme ------------------------
 
 let g:nord_bold_vertical_split_line = 1
 let g:nord_italic = 1
 let g:nord_bold = 1
 let g:nord_underline = 1
-
 let g:nord_italic_comments = 1
 
 " Unfortunately I couldn't find a way to not draw the background color with
