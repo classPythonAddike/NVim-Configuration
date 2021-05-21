@@ -9,8 +9,7 @@ Plug 'ryanoasis/vim-devicons' " Show icons in front of files
 Plug 'jiangmiao/auto-pairs'
 
 " Themes
-Plug 'joshdick/onedark.vim'
-Plug 'arcticicestudio/nord-vim'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 " Intellisense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,34 +27,31 @@ Plug 'ap/vim-css-color'
 " Syntax Highlighting for Vue files
 Plug 'posva/vim-vue'
 
+Plug 'voldikss/vim-floaterm'
+
+Plug 'bfrg/vim-cpp-modern'
+
 call plug#end()
 
 " ------------------------------ ColorScheme -----------------------------
 
+
 let g:vue_pre_processors = 'detect_on_enter' "Syntax highlighting for vue files
 
 if $term == 'vtpcon'
-  colorscheme onedark " ColorScheme for terminal
-  let g:onedark_hide_endofbuffer=1
-  let g:onedark_terminal_italics=1
-  let g:onedark_termcolors=256
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
 
-  " checks if your terminal has 24-bit color support
   if (has("termguicolors"))
-  	set termguicolors
-	  hi LineNr ctermbg=NONE guibg=NONE
-	" Don't draw a bg colour, let the image show
-  endif
-  
-  " Remove background in terminal
-  if (has("autocmd") && !has("gui_running"))
-    augroup colorset
-	    autocmd!
-	    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7"  }
-	    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white  })
-    augroup END
+    set termguicolors
   endif
 
+  let g:hybrid_transparent_background = 1
+  let g:enable_italic_font = 1
+  let g:enable_bold_font = 1
+  colorscheme hybrid_reverse
+  let g:airline_theme='deus'
 else
   if &ft == "python"
     colorscheme slate
@@ -63,9 +59,6 @@ else
     colorscheme nord " ColorScheme for nvim-qt
   endif
 endif
-
-" Comments in italic
-" hi Comment cterm=italic
 
 " -------------------------- General ---------------------------
 
@@ -90,6 +83,8 @@ endfunction
 
 command InitRustProject :call InitialiseRustProject()
 
+command W :w " Sometimes I type :W instead of :w
+
 " --------------------------------- Remaps -----------------------------
 
 nnoremap <F2> :bprevious<CR>
@@ -102,6 +97,9 @@ function Run()
     :ter python %
   elseif &ft == "go"
     :ter go run .
+  elseif &ft == "cpp"
+    :call Build()
+    :execute(':ter ' . expand('%:r') . '.exe')
   else
     :echom "No run configurations set for filetype '" . &ft . "'!"
   endif
@@ -114,6 +112,8 @@ function Build()
     :!npm run build
   elseif &ft == "rust"
     :!cargo build
+  elseif &ft == "cpp"
+    execute(':!g++ % -o ' . expand('%:r') . '.exe')
   else
     :echom "No build configurations set for filetype '" . &ft . "'!"
   endif
@@ -158,15 +158,15 @@ let g:go_highlight_function_calls = 1 " Highlight function calls
  
 let g:airline_powerline_fonts = 1
 
-" --------------------- Nord ColorScheme ------------------------
+" -------------------------- FloatTerm -----------------------------
 
-let g:nord_bold_vertical_split_line = 1
-let g:nord_italic = 1
-let g:nord_bold = 1
-let g:nord_underline = 1
-let g:nord_italic_comments = 1
+hi FloatermBorder guifg=grey
+command NewFloatTerm :FloatermNew --height=0.7 --width=0.9
 
-" Unfortunately I couldn't find a way to not draw the background color with
-" nord. So my way around it was to first use onedark, which would not draw a
-" background, and then change to nord after that
-:command NordTheme :colorscheme nord
+" ---------------------------- vim-cpp-modern ------------------------
+
+" Highlight struct/class member variables
+let g:cpp_member_highlight = 1
+
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
