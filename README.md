@@ -11,7 +11,7 @@ This repository contains my NeoVim-configurations. Please note, that a lot of th
 
 4. Auto pairs for '(' '\[' '{', etc: [auto-pairs](https://github.com/jiangmiao/auto-pairs)
 
-5. Themes: [nord-theme](https://github.com/arcticicestudio/nord-vim) and [onedark](https://github.com/joshdick/onedark.vim)
+5. Themes: [vim-hybrid-material](https://github.com/kristijanhusak/vim-hybrid-material)
 
 6. Language Server Extensions: [coc](https://github.com/neoclide/coc.nvim)
 
@@ -24,6 +24,11 @@ This repository contains my NeoVim-configurations. Please note, that a lot of th
 10. Color Highlighting: [vim-css-color](https://github.com/ap/vim-css-color)
 
 11. Vue Syntax Highlighting: [vim-vue](https://github.com/posva/vim-vue)
+
+12. Terminal: [vim-floaterm](https://github.com/voldikss/vim-floaterm)
+
+13. C++ Syntax Highlighting: [vim-cpp-modern](bfrg/vim-cpp-modern)
+
 
 Other than these, I also use three plugins with Coc, which are not listed in my [init.vim](/init.vim) -
 1. [coc-go](https://github.com/josa42/coc-go): For the Gopls language server extension
