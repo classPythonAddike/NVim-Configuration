@@ -1,33 +1,21 @@
 # NVim-Configuration
-This repository contains my NeoVim-configurations. Please note, that a lot of the code in my [init.vim](/init.vim) is take from the documentation, and from [@Binx's init.vim](https://github.com/Binx-Codes/NeoVim-config) (which has changed a lot now). Also, I primarily use Neovim for Golang, Rust and Vue Projects, so a lot of my configurations are centered towards those languages.
+This repository contains my NeoVim-configurations. Please note, that a lot of the code in my [init.vim](/init.vim) is take from the documentation, and from [@Binx's init.vim](https://github.com/Binx-Codes/NeoVim-config) (which has changed a lot now). Also, I primarily use Neovim for Golang, C++, Rust and Vue Projects, so a lot of my configurations are centered towards those languages.
 
 ## Plugins Used
  
-1. File Explorer: [NERDTree](https://github.com/scrooloose/NERDTree)
-
-2. Highlighting Files in the Explorer: [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
-
-3. File Icons in the Explorer: [ryanoasis/vim-devicons](https://github.com/ryanoasis/vim-devicons)
-
-4. Auto pairs for '(' '\[' '{', etc: [auto-pairs](https://github.com/jiangmiao/auto-pairs)
-
-5. Themes: [vim-hybrid-material](https://github.com/kristijanhusak/vim-hybrid-material)
-
-6. Language Server Extensions: [coc](https://github.com/neoclide/coc.nvim)
-
-7. Status Line (and File Tabs): [vim-airline](https://github.com/vim-airline/vim-airline)
-
-8. Themes for the Status Line: [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
-
-9. Go Support: [vim-go](https://github.com/fatih/vim-go)
-
-10. Color Highlighting: [vim-css-color](https://github.com/ap/vim-css-color)
-
-11. Vue Syntax Highlighting: [vim-vue](https://github.com/posva/vim-vue)
-
-12. Terminal: [vim-floaterm](https://github.com/voldikss/vim-floaterm)
-
-13. C++ Syntax Highlighting: [vim-cpp-modern](bfrg/vim-cpp-modern)
+- File Explorer: [NERDTree](https://github.com/scrooloose/NERDTree)
+- Highlighting Files in the Explorer: [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
+- File Icons in the Explorer: [ryanoasis/vim-devicons](https://github.com/ryanoasis/vim-devicons)
+- Auto pairs for `(` `[` `{`, etc: [auto-pairs](https://github.com/jiangmiao/auto-pairs)
+- Themes: [vim-hybrid-material](https://github.com/kristijanhusak/vim-hybrid-material)
+- Language Server Extensions: [coc](https://github.com/neoclide/coc.nvim)
+- Status Line (and File Tabs): [vim-airline](https://github.com/vim-airline/vim-airline)
+- Themes for the Status Line: [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+- Go Support: [vim-go](https://github.com/fatih/vim-go)
+- Color Highlighting: [vim-css-color](https://github.com/ap/vim-css-color)
+- Vue Syntax Highlighting: [vim-vue](https://github.com/posva/vim-vue)
+- Terminal: [vim-floaterm](https://github.com/voldikss/vim-floaterm)
+- C++ Syntax Highlighting: [vim-cpp-modern](bfrg/vim-cpp-modern)
 
 
 Other than these, I also use three plugins with Coc, which are not listed in my [init.vim](/init.vim) -
@@ -43,23 +31,23 @@ Note: Vetur, the language server for Vue can be slow at times. I fixed this by f
 ## Go Projects With NVim (In Windows Terminal)
 
 <p align="center">
-  <img src="/nvim_image.png" height="480" />
+  <img src="/nvim_go_image.png" height="480" />
 </p>
 
-## Vue Projects With NVim (In Windows Terminal)
+## C++ Projects With NVim (In Windows Terminal)
 
 <p align="center">
- <img src="/nvim_vue_image.png" height="480" />
+ <img src="/nvim_cpp_image.png" height="480" />
+</p>
+
+## Python Projects With NVim (In Windows Terminal)
+
+<p align="center">
+ <img src="/nvim_python_image.png" height="480" />
 </p>
 
 ## Background Image used
 
 <p align="center">
-  <img src="/BgImage.png" height="400" />
-</p>
-
-## NVim - Gui
-
-<p align="center">
-  <img src="/nvim_qt_image.png" height="480" />
+  <img src="/bgimg_tower.jpg" height="400" />
 </p>
