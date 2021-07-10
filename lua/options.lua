@@ -12,12 +12,24 @@ vim.opt.smarttab = false
 vim.opt.smartindent = false
 vim.opt.cindent = false
 
-vim.g.NERDTreeWinSize = 28
-vim.g.NERDTreeSyntaxEnabledDefaultExactMatches = {'.gitignore'}
 vim.g["airline#extensions#tabline#enabled"] = 1
 vim.g.airline_powerline_fonts = 1
 vim.g.cpp_member_highlight = 1
 vim.g.cpp_attributes_highlight = 1
+
+vim.g.dashboard_custom_header = {
+   '        ▄▄▄▄▄███████████████████▄▄▄▄▄     ',
+   '      ▄██████████▀▀▀▀▀▀▀▀▀▀██████▀████▄   ',
+   '     █▀████████▄             ▀▀████ ▀██▄  ',
+   '    █▄▄██████████████████▄▄▄         ▄██▀ ',
+   '     ▀█████████████████████████▄    ▄██▀  ',
+   '       ▀████▀▀▀▀▀▀▀▀▀▀▀▀█████████▄▄██▀    ',
+   '         ▀███▄              ▀██████▀      ',
+   '           ▀██████▄        ▄████▀         ',
+   '              ▀█████▄▄▄▄▄▄▄███▀           ',
+   '                ▀████▀▀▀████▀             ',
+   '                  ▀███▄███▀                ',
+   '                     ▀█▀                   ' }
 
 vim.cmd("set omnifunc=syntaxcomplete#Complete")
 vim.cmd("let $NVIM_TUI_ENABLE_TRUE_COLOR=1")
