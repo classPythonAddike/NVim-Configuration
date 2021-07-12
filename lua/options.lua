@@ -2,6 +2,9 @@ vim.cmd("filetype plugin on")
 vim.cmd("syntax on")
 vim.cmd("filetype indent off")
 
+-- Synchronize the system clipboard with neovim's
+vim.opt.clipboard = "unnamedplus"
+
 vim.completeopt = {"menuone", "noselect"}
 vim.opt.nu = true
 vim.opt.tabstop = 4
