@@ -3,6 +3,7 @@ vim.cmd [[
 ]]
 
 require("plugins")
+require("nvimtree")
 require("autocomplete")
 require("colorscheme")
 require("options")
