@@ -57,8 +57,13 @@ return require("packer").startup(function(use)
 	use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'} 
 	use {'prettier/vim-prettier', run = 'npm install' }
 
+	use 'hardcoreplayers/dashboard-nvim'
 	use 'liuchengxu/vim-clap'
-	use 'glepnir/dashboard-nvim'
+
+    use 'francoiscabrol/ranger.vim'
+	use 'rbgrouleff/bclose.vim'
+
+	use 'airblade/vim-rooter'
 
 	use {'fatih/vim-go', run = ':GoUpdateBinaries'}
 

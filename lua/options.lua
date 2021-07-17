@@ -17,8 +17,11 @@ vim.opt.cindent = false
 
 vim.g["airline#extensions#tabline#enabled"] = 1
 vim.g.airline_powerline_fonts = 1
-vim.g.cpp_member_highlight = 1
-vim.g.cpp_attributes_highlight = 1
+
+vim.g.NERDTreeHijackNetrw = 0
+vim.g.ranger_replace_netrw = 1
+
+vim.g.rooter_patterns = { '.git', 'Makefile', '*.sln', 'build/', '__pycache__', 'src/' }
 
 vim.g.dashboard_custom_header = {
    '        ▄▄▄▄▄███████████████████▄▄▄▄▄     ',

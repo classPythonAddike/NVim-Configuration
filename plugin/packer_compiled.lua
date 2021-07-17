@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/binx/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/binx/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/binx/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/binx/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/binx/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/pythonaddict/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/pythonaddict/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/pythonaddict/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/pythonaddict/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/pythonaddict/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,87 +71,99 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["auto-pairs"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/auto-pairs"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
   ["barbar.nvim"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/barbar.nvim"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/barbar.nvim"
+  },
+  ["bclose.vim"] = {
+    loaded = true,
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/bclose.vim"
   },
   ["dashboard-nvim"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
   },
   ["nvim-compe"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["onedark.vim"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/onedark.vim"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/onedark.vim"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["ranger.vim"] = {
+    loaded = true,
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/ranger.vim"
   },
   vim = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/vim"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim"
   },
   ["vim-airline"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/vim-airline"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-airline"
   },
   ["vim-airline-themes"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
   },
   ["vim-clap"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/vim-clap"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-clap"
   },
   ["vim-css-color"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/vim-css-color"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-css-color"
   },
   ["vim-go"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/vim-go"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-go"
   },
   ["vim-hybrid-material"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/vim-hybrid-material"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-hybrid-material"
   },
   ["vim-prettier"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/vim-prettier"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-prettier"
+  },
+  ["vim-rooter"] = {
+    loaded = true,
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-rooter"
   },
   ["vim-vue"] = {
     loaded = true,
-    path = "/home/binx/.local/share/nvim/site/pack/packer/start/vim-vue"
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-vue"
   }
 }
 

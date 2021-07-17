@@ -8,6 +8,12 @@ vim.api.nvim_set_keymap('n', '<F8>', ':NvimTreeFindFile<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-A>', 'ggVG', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-A>','<Esc> ggVG', {noremap = true})
 
+vim.api.nvim_set_keymap('n', '<C-F>', ':Ranger<CR>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-F>', '<Esc>:Ranger<CR>', {noremap = true})
+
+
+
+
 function Build()
     local ft = vim.bo.filetype
 
