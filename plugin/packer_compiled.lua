@@ -11,7 +11,7 @@ local no_errors, error_msg = pcall(function()
 
   local time
   local profile_info
-  local should_profile = true
+  local should_profile = false
   if should_profile then
     local hrtime = vim.loop.hrtime
     profile_info = {}
@@ -89,6 +89,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+  },
   ["markdown-preview.nvim"] = {
     loaded = true,
     path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
@@ -125,17 +129,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/ranger.vim"
   },
+  ["twilight.nvim"] = {
+    loaded = true,
+    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/twilight.nvim"
+  },
   vim = {
     loaded = true,
     path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/pythonaddict/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
   },
   ["vim-clap"] = {
     loaded = true,

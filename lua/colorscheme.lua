@@ -3,9 +3,6 @@ local colorscheme = {}
 vim.g.dracula_colorterm = 1
 vim.g.onedark_terminal_italics = 1
 
-vim.g.airline_theme = "onedark"
-
-
 if vim.fn.has("termguicolors") then
     vim.opt.termguicolors = true
 end

@@ -12,11 +12,8 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = false
 vim.opt.shiftwidth = 4
 vim.opt.smarttab = false
-vim.opt.smartindent = false
+vim.opt.smartindent = true
 vim.opt.cindent = false
-
-vim.g["airline#extensions#tabline#enabled"] = 1
-vim.g.airline_powerline_fonts = 1
 
 vim.g.NERDTreeHijackNetrw = 0
 vim.g.ranger_replace_netrw = 1
@@ -42,3 +39,9 @@ vim.g.dashboard_custom_header = {
 
 vim.cmd("set omnifunc=syntaxcomplete#Complete")
 vim.cmd("let $NVIM_TUI_ENABLE_TRUE_COLOR=1")
+
+require('lualine').setup{
+	options = {
+		theme = 'nightfly'
+	}
+}

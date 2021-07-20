@@ -3,6 +3,8 @@ vim.api.nvim_set_keymap('n', '<F3>', ':bnext<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F4>', ':blast<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-Q>', ':BufferClose<CR>', {noremap = true})
 
+vim.api.nvim_set_keymap('n', '<C-S>', ':w<CR>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-S>', '<Esc>:w<CR>', {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<F8>', ':NvimTreeFindFile<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-A>', 'ggVG', {noremap = true})
@@ -11,8 +13,7 @@ vim.api.nvim_set_keymap('i', '<C-A>','<Esc> ggVG', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-F>', ':Ranger<CR>', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-F>', '<Esc>:Ranger<CR>', {noremap = true})
 
-
-
+vim.api.nvim_set_keymap('n', '<S-F>', ':Clap files<CR>', {noremap = true})
 
 function Build()
     local ft = vim.bo.filetype

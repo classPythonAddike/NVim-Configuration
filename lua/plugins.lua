@@ -40,8 +40,11 @@ return require("packer").startup(function(use)
 
 	use 'jiangmiao/auto-pairs'
 
-	use 'vim-airline/vim-airline'
-	use 'vim-airline/vim-airline-themes'
+	
+	use {
+		'hoob3rt/lualine.nvim',
+		requires = {'kyazdani42/nvim-web-devicons', opt = true}
+	}
 
 	use 'romgrk/barbar.nvim'
 
@@ -58,7 +61,7 @@ return require("packer").startup(function(use)
 	use {'prettier/vim-prettier', run = 'npm install' }
 
 	use 'hardcoreplayers/dashboard-nvim'
-	use 'liuchengxu/vim-clap'
+	use {'liuchengxu/vim-clap', run = ':Clap install-binary' }
 
     use 'francoiscabrol/ranger.vim'
 	use 'rbgrouleff/bclose.vim'
@@ -66,5 +69,7 @@ return require("packer").startup(function(use)
 	use 'airblade/vim-rooter'
 
 	use {'fatih/vim-go', run = ':GoUpdateBinaries'}
+
+	use { "folke/twilight.nvim" }
 
 end)
