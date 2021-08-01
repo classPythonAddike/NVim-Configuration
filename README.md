@@ -1,5 +1,7 @@
 # Neovim Config
 
+<img src="/Screenshots/luafile.png">
+
 This repository contains my NeoVim-configurations.
 Please note, that a lot of the code in my config (mainly [plugins.lua](/lua/plugins.lua)) was implemented by [@Binx](https://github.com/Binx-Codes).
 

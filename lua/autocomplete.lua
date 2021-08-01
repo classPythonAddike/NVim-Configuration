@@ -1,51 +1,51 @@
 require'compe'.setup {
-    enabled = true;
-    autocomplete = true;
-    debug = false;
-    min_length = 1;
-    preselect = 'enable';
-    throttle_time = 80;
-    source_timeout = 200;
-    resolve_timeout = 800;
-    incomplete_delay = 400;
-    max_abbr_width = 100;
-    max_kind_width = 100;
-    max_menu_width = 100;
-    documentation = true;
+	enabled = true;
+	autocomplete = true;
+	debug = false;
+	min_length = 1;
+	preselect = 'enable';
+	throttle_time = 80;
+	source_timeout = 200;
+	resolve_timeout = 800;
+	incomplete_delay = 400;
+	max_abbr_width = 100;
+	max_kind_width = 100;
+	max_menu_width = 100;
+	documentation = true;
 
-    source = {
-        path = true;
-        buffer = true;
-        calc = true;
-        nvim_lsp = true;
-        nvim_lua = true;
-        vsnip = true;
-    };
+	source = {
+		path = true;
+		buffer = true;
+		calc = true;
+		nvim_lsp = true;
+		nvim_lua = true;
+		vsnip = true;
+	};
 }
 
 local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
-  end
+	require'lspinstall'.setup()
+	local servers = require'lspinstall'.installed_servers()
+	for _, server in pairs(servers) do
+		require'lspconfig'[server].setup{}
+	end
 end
-
-setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
 require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+	setup_servers() -- reload installed servers
+	vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
 
+-- Easy way to install lsp servers --
+--[[
 local lspinstall = require("lspinstall")
 
-local lsp_servers = { "go", "python", "vue", "svelte", "lua", "vim", "cpp" }
+local lsp_servers = { "go", "python", "vue", "svelte", "lua", "vim" }
 local installed_servers = lspinstall.installed_servers()
 
 function Make_set(list)
-    local set = {}
+	local set = {}
 
 	for _, l in ipairs(list)
 	do
@@ -64,3 +64,6 @@ do
 		lspinstall.install_server(server)
 	end
 end
+--]]
+
+setup_servers()

@@ -67,14 +67,8 @@ return require("packer").startup(function(use)
 	}
 
 	use 'joshdick/onedark.vim'
-	use {
-		'kristijanhusak/vim-hybrid-material',
-		cmd = "LoadColorScheme"
-	}
-	use {
-		'dracula/vim',
-		cmd = "LoadColorScheme"
-	}
+	use 'kristijanhusak/vim-hybrid-material'
+	use 'dracula/vim'
 
 	use {
 		'iamcco/markdown-preview.nvim',
@@ -101,7 +95,7 @@ return require("packer").startup(function(use)
 		cmd = 'Ranger'
 	}
 
-	use 'airblade/vim-rooter'
+--	use 'airblade/vim-rooter'
 
 	use {
 		'fatih/vim-go',
@@ -113,5 +107,4 @@ return require("packer").startup(function(use)
 		'folke/twilight.nvim',
 		cmd = 'Twilight'
 	}
-
 end)
