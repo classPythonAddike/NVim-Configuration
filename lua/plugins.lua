@@ -95,7 +95,7 @@ return require("packer").startup(function(use)
 		cmd = 'Ranger'
 	}
 
---	use 'airblade/vim-rooter'
+	use 'airblade/vim-rooter'
 
 	use {
 		'fatih/vim-go',
