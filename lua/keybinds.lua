@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap('i', '<C-A>','<Esc> ggVG', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-F>', ':Ranger<CR>', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-F>', '<Esc>:Ranger<CR>', {noremap = true})
 
-vim.api.nvim_set_keymap('n', '<S-F>', ':Clap files<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<S-F>', ':Telescope<CR>', {noremap = true})
 
 function Build()
     local ft = vim.bo.filetype
@@ -22,8 +22,6 @@ function Build()
         vim.cmd(":!go build")
     elseif ft == "vue" then
         vim.cmd(":!npm run build")
-    elseif ft == "rust" then
-        vim.cmd(":!cargo build")
     elseif ft == "cpp" then
         vim.cmd(":call execute(':!g++ % -o ' . expand('%:r') . '.exe')")
     else

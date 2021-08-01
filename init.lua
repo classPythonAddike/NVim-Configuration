@@ -1,10 +1,28 @@
-vim.cmd [[
-        source ~/.config/nvim/commands.vim
-]]
+local config_path = "/home/pythonaddict/.config/nvim/"
+local debug = true
 
-require("keybinds")
-require("plugins")
-require("autocomplete")
-require("colorscheme")
-require("options")
-require("nvimtree")
+local config_files = {
+	"plugins",
+	"keybinds",
+	"autocomplete",
+	"colorscheme",
+	"options",
+	"nvimtree"
+}
+
+vim.cmd("source " .. config_path .. "/commands.vim")
+
+for i = 1, #config_files, 1
+do
+	local status_ok, error = pcall(
+		vim.cmd, "luafile " .. config_path .. "lua/" .. config_files[i] .. ".lua"
+	)
+
+	if not status_ok then
+		print("Something is wrong with " .. config_files[i] .. ".lua")
+
+		if debug then
+			print(error)
+		end
+	end
+end

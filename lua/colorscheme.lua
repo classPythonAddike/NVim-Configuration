@@ -1,5 +1,3 @@
-local colorscheme = {}
-
 vim.g.dracula_colorterm = 1
 vim.g.onedark_terminal_italics = 1
 

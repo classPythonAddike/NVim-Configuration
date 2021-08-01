@@ -33,14 +33,18 @@ return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
 	use 'kyazdani42/nvim-web-devicons'
-	use 'kyazdani42/nvim-tree.lua'
+	use {
+		'kyazdani42/nvim-tree.lua',
+		cmd = 'NvimTreeFindFile'
+	}
 
-	use 'nvim-lua/plenary.nvim'
-	use 'lewis6991/gitsigns.nvim'
+	use {
+		'lewis6991/gitsigns.nvim',
+		requires = {'nvim-lua/plenary.nvim'}
+	}
 
 	use 'jiangmiao/auto-pairs'
 
-	
 	use {
 		'hoob3rt/lualine.nvim',
 		requires = {'kyazdani42/nvim-web-devicons', opt = true}
@@ -49,27 +53,65 @@ return require("packer").startup(function(use)
 	use 'romgrk/barbar.nvim'
 
 	use 'neovim/nvim-lspconfig'
+	use 'kabouzeid/nvim-lspinstall'
 	use 'hrsh7th/nvim-compe'
 
-	use 'ap/vim-css-color'
-	use 'storyn26383/vim-vue'
-	use 'joshdick/onedark.vim'
-	use 'kristijanhusak/vim-hybrid-material'
-	use 'dracula/vim' 
+	use {
+		'ap/vim-css-color',
+		ft = {'css', 'html', 'vue', 'svelte'}
+	}
 
-	use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'} 
-	use {'prettier/vim-prettier', run = 'npm install' }
+	use {
+		'storyn26383/vim-vue',
+		ft = {'vue'}
+	}
+
+	use 'joshdick/onedark.vim'
+	use {
+		'kristijanhusak/vim-hybrid-material',
+		cmd = "LoadColorScheme"
+	}
+	use {
+		'dracula/vim',
+		cmd = "LoadColorScheme"
+	}
+
+	use {
+		'iamcco/markdown-preview.nvim',
+		run = 'cd app && npm install',
+		ft = 'markdown'
+	}
 
 	use 'hardcoreplayers/dashboard-nvim'
-	use {'liuchengxu/vim-clap', run = ':Clap install-binary' }
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = {
+			{'nvim-lua/popup.nvim'},
+			{'nvim-lua/plenary.nvim'}
+		},
+		cmd = 'Telescope'
+	}
 
-    use 'francoiscabrol/ranger.vim'
-	use 'rbgrouleff/bclose.vim'
+	use {
+		'rbgrouleff/bclose.vim',
+		cmd = 'Ranger'
+	}
+	use {
+		'francoiscabrol/ranger.vim',
+		cmd = 'Ranger'
+	}
 
 	use 'airblade/vim-rooter'
 
-	use {'fatih/vim-go', run = ':GoUpdateBinaries'}
+	use {
+		'fatih/vim-go',
+		run = ':GoUpdateBinaries',
+		ft = 'go'
+	}
 
-	use { "folke/twilight.nvim" }
+	use {
+		'folke/twilight.nvim',
+		cmd = 'Twilight'
+	}
 
 end)

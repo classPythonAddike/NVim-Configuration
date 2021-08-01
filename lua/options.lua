@@ -37,6 +37,8 @@ vim.g.dashboard_custom_header = {
   "~ _~~- ~^-^~-^~~- ^~_^-^~~_ -~^_ -~_-~~^- _~~_~-^_ ~^-^~~-_^-~ ~^    ",
 }
 
+vim.g.dashboard_default_executive ='telescope'
+
 vim.cmd("set omnifunc=syntaxcomplete#Complete")
 vim.cmd("let $NVIM_TUI_ENABLE_TRUE_COLOR=1")
 
