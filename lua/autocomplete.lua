@@ -12,7 +12,7 @@ require'compe'.setup {
     max_kind_width = 100;
     max_menu_width = 100;
     documentation = true;
-    
+
     source = {
         path = true;
         buffer = true;
@@ -37,4 +37,30 @@ setup_servers()
 require'lspinstall'.post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
+
+local lspinstall = require("lspinstall")
+
+local lsp_servers = { "go", "python", "vue", "svelte", "lua", "vim", "cpp" }
+local installed_servers = lspinstall.installed_servers()
+
+function Make_set(list)
+    local set = {}
+
+	for _, l in ipairs(list)
+	do
+		set[l] = true
+	end
+
+	return set
+end
+
+installed_servers = Make_set(installed_servers)
+
+for _, server in ipairs(lsp_servers)
+do
+	if not installed_servers[server] then
+		print("Installing LSP Server for " .. server)
+		lspinstall.install_server(server)
+	end
 end

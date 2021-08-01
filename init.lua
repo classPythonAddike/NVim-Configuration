@@ -1,4 +1,5 @@
-local config_path = "/home/pythonaddict/.config/nvim/"
+local home_dir = os.getenv("HOME")
+local config_path = home_dir .. "/.config/nvim/"
 local debug = true
 
 local config_files = {
@@ -10,7 +11,7 @@ local config_files = {
 	"nvimtree"
 }
 
-vim.cmd("source " .. config_path .. "/commands.vim")
+vim.cmd("source " .. config_path .. "commands.vim")
 
 for i = 1, #config_files, 1
 do

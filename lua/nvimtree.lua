@@ -16,7 +16,7 @@ vim.g.nvim_tree_group_empty = 1
 vim.g.nvim_tree_lsp_diagnostics = 1
 vim.g.nvim_tree_disable_window_picker = 1
 vim.g.nvim_tree_hijack_cursor = 1
-vim.g.nvim_tree_icon_padding = ' '
+vim.g.nvim_tree_icon_padding = '  '
 vim.g.nvim_tree_update_cwd = 1
 
 vim.g.nvim_tree_special_files = {
@@ -33,15 +33,15 @@ vim.g.nvim_tree_show_icons = {
 }
 
 vim.g.nvim_tree_icons = {
-	['default'] = '',
+	['default'] = '🗎',
 	['symlink'] = '',
 	['folder'] = {
-		['arrow_open'] = "",
-		['arrow_closed'] = "",
+		['arrow_open'] = "↓",
+		['arrow_closed'] = "→",
 		['default'] = "",
 		['open'] = "",
-		['empty'] = "",
-		['empty_open'] = "",
+		['empty'] = "⇒",
+		['empty_open'] = "⇓",
 		['symlink'] = "",
 		['symlink_open'] = "",
     },

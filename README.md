@@ -13,8 +13,18 @@ Make sure you have Node, npm and Python3 installed. Then install `pynvim` with `
 
 ### Install
 
-If you want to use my config, simple clone it to your own machine and change the config path in (init.lua)[/init.lua]. Once you do, open NeoVim and let packer install itself.
+#### Linux
 
-Then run `:PackerSync`, `:PackerCompile`, and `:PackerInstall` to install all the plugins. Don't worry if you encounter errors - that is probably just because plugins are not installed.
+1. Clone this config to your machine to `~/.config/nvim`.
+2. Then open NeoVim (ignore any errors you encounter when it opens) and run `:PackerSync`, `:PackerCompile`, and finally, `:PackerInstall` to install plugins. Note that this may take a while - some plugins like `vim-go` also install the go binaries. You may remove this from the plugins list in [plugins.lua](/lua/plugins.lua).
+3. Finally, restart NeoVim, and you should be good to go!
 
-Once the plugins are installed, NeoVim should work without issues. Feel free to open an issue if it doesn't!
+#### Windows
+
+Installation steps are slightly more complicated for Windows.
+
+1. Clone this repository to `C:\Users\USERNAME\AppData\Local\nvim`
+2. Open [init.lua](/init.lua) and change `config_path` to `"C:\Users\USERNAME\AppData\Local\nvim\\"`
+3. Also, change `python3` to `python` in the `Run()` function in [keybinds.lua](/lua/keybinds.lua)
+4. Then open NeoVim (ignore any errors you encounter when it opens) and run `:PackerSync`, `:PackerCompile`, and finally, `:PackerInstall` to install plugins. Note that this may take a while - some plugins like `vim-go` also install the go binaries. You may remove this from the plugins list in [plugins.lua](/lua/plugins.lua).
+5. Finally, restart NeoVim, and you should be good to go!
