@@ -14,6 +14,7 @@ vim.opt.shiftwidth = 4
 vim.opt.smarttab = false
 vim.opt.smartindent = true
 vim.opt.cindent = false
+vim.opt.cursorline = true
 
 vim.g.NERDTreeHijackNetrw = 0
 vim.g.ranger_replace_netrw = 1
@@ -47,3 +48,18 @@ require('lualine').setup{
 		theme = 'nightfly'
 	}
 }
+
+vim.g.UltiSnipsExpandTrigger = "<tab>"
+
+--[[
+vim.g.dashboard_custom_section = {
+	buffer_list = {
+		description = {
+			' Recently lase session                 SPC b b'
+		},
+		command = {
+			'lua print("abc")'
+		}
+	}
+}
+]]

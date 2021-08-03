@@ -32,7 +32,6 @@ return require("packer").startup(function(use)
     -- Packer can manage itself as an optional plugin
     use "wbthomason/packer.nvim"
 
-	use 'kyazdani42/nvim-web-devicons'
 	use {
 		'kyazdani42/nvim-tree.lua',
 		cmd = 'NvimTreeFindFile'
@@ -40,30 +39,37 @@ return require("packer").startup(function(use)
 
 	use {
 		'lewis6991/gitsigns.nvim',
-		requires = {'nvim-lua/plenary.nvim'}
+		requires = {'nvim-lua/plenary.nvim'},
 	}
-
-	use 'jiangmiao/auto-pairs'
 
 	use {
-		'hoob3rt/lualine.nvim',
-		requires = {'kyazdani42/nvim-web-devicons', opt = true}
+		'jiangmiao/auto-pairs',
+		ft = {'python', 'lua', 'vue', 'svelte', 'go', 'javascript', 'vim', 'css', 'html'}
 	}
 
+	use 'kyazdani42/nvim-web-devicons'
 	use 'romgrk/barbar.nvim'
+	use {
+		'hoob3rt/lualine.nvim',
+		after = "onedark.vim"
+	}
 
 	use 'neovim/nvim-lspconfig'
 	use 'kabouzeid/nvim-lspinstall'
 	use 'hrsh7th/nvim-compe'
 
 	use {
-		'ap/vim-css-color',
-		ft = {'css', 'html', 'vue', 'svelte'}
+		'honza/vim-snippets',
+		ft = {'go', 'python', 'css', 'html', 'vue', 'svelte', 'lua', 'vim'}
+	}
+	use {
+		'SirVer/ultisnips',
+		ft = {'go', 'python', 'css', 'html', 'vue', 'svelte', 'lua', 'vim'}
 	}
 
 	use {
-		'storyn26383/vim-vue',
-		ft = {'vue'}
+		'ap/vim-css-color',
+		ft = {'css', 'html', 'vue', 'svelte'}
 	}
 
 	use 'joshdick/onedark.vim'
@@ -104,7 +110,18 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		'folke/twilight.nvim',
-		cmd = 'Twilight'
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate'
+	}
+
+	use 'NTBBloodbath/notifier.nvim'
+
+	use {
+		'gelguy/wilder.nvim',
+		run = ':UpdateRemotePlugins'
+	}
+
+	use {
+		'justinmk/vim-sneak'
 	}
 end)

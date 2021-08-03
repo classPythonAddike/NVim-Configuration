@@ -8,3 +8,11 @@ if (has("autocmd") && !has("gui_running"))
 		autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
 	augroup END
 endif
+
+call wilder#enable_cmdline_enter()
+set wildcharm=<Tab>
+cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
+cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
+
+" only / and ? are enabled by default
+call wilder#set_option('modes', ['/', '?', ':'])

@@ -3,7 +3,15 @@ vim.api.nvim_set_keymap('n', '<F3>', ':bnext<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F4>', ':blast<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-Q>', ':BufferClose<CR>', {noremap = true})
 
-vim.api.nvim_set_keymap('n', '<C-S>', ':w<CR>', {noremap = true})
+function SaveFileOrSession()
+	if vim.bo.filetype == "dashboard" then
+		vim.cmd(":SessionSave")
+	else
+		vim.cmd(":w<CR>")
+	end
+end
+
+vim.api.nvim_set_keymap('n', '<C-S>', ':lua SaveFileOrSession()<CR>', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-S>', '<Esc>:w<CR>', {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<F8>', ':NvimTreeFindFile<CR>', {noremap = true})

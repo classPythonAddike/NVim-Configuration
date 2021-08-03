@@ -37,33 +37,4 @@ require'lspinstall'.post_install_hook = function ()
 	vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
 
--- Easy way to install lsp servers --
---[[
-local lspinstall = require("lspinstall")
-
-local lsp_servers = { "go", "python", "vue", "svelte", "lua", "vim" }
-local installed_servers = lspinstall.installed_servers()
-
-function Make_set(list)
-	local set = {}
-
-	for _, l in ipairs(list)
-	do
-		set[l] = true
-	end
-
-	return set
-end
-
-installed_servers = Make_set(installed_servers)
-
-for _, server in ipairs(lsp_servers)
-do
-	if not installed_servers[server] then
-		print("Installing LSP Server for " .. server)
-		lspinstall.install_server(server)
-	end
-end
---]]
-
 setup_servers()
