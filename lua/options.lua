@@ -50,16 +50,3 @@ require('lualine').setup{
 }
 
 vim.g.UltiSnipsExpandTrigger = "<tab>"
-
---[[
-vim.g.dashboard_custom_section = {
-	buffer_list = {
-		description = {
-			' Recently lase session                 SPC b b'
-		},
-		command = {
-			'lua print("abc")'
-		}
-	}
-}
-]]

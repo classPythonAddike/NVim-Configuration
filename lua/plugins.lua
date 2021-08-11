@@ -54,7 +54,6 @@ return require("packer").startup(function(use)
 	}
 
 	use 'neovim/nvim-lspconfig'
-	use 'kabouzeid/nvim-lspinstall'
 	use 'hrsh7th/nvim-compe'
 
 	use {
@@ -105,6 +104,15 @@ return require("packer").startup(function(use)
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
+	}
+
+	use {
+		'rbgrouleff/bclose.vim',
+		cmd = 'Ranger'
+	}
+	use {
+		'francoiscabrol/ranger.vim',
+		cmd = 'Ranger'
 	}
 
 	use 'rcarriga/nvim-notify'
