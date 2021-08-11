@@ -1,8 +1,10 @@
+parsers = require("treesitter-parsers")
+
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = { "python", "vue", "svelte", "go", "html", "javascript", "lua" },
+	ensure_installed = parsers.parsers,
 	ignore_install = {},
 	highlight = {
-		enable = { "python", "vue", "svelte", "go", "html", "javascript", "css", "lua" },
+		enable = true,
 		disable = {},
 		additional_vim_regex_highlighting = false
 	},

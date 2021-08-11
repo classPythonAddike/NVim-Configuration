@@ -108,11 +108,9 @@ return require("packer").startup(function(use)
 
 	use {
 		'rbgrouleff/bclose.vim',
-		cmd = 'Ranger'
 	}
 	use {
 		'francoiscabrol/ranger.vim',
-		cmd = 'Ranger'
 	}
 
 	use 'rcarriga/nvim-notify'
@@ -129,5 +127,10 @@ return require("packer").startup(function(use)
 	use {
 		'voldikss/vim-floaterm',
 		cmd = 'FloatermNew'
+	}
+
+	use {
+		'tpope/vim-fugitive',
+		cmd = 'Git'
 	}
 end)
