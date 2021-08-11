@@ -51,7 +51,6 @@ return require("packer").startup(function(use)
 	use 'romgrk/barbar.nvim'
 	use {
 		'hoob3rt/lualine.nvim',
-		after = "onedark.vim"
 	}
 
 	use 'neovim/nvim-lspconfig'
@@ -75,6 +74,11 @@ return require("packer").startup(function(use)
 	use 'joshdick/onedark.vim'
 	use 'kristijanhusak/vim-hybrid-material'
 	use 'dracula/vim'
+	use {
+		"npxbr/gruvbox.nvim",
+		requires = {"rktjmp/lush.nvim"}
+	}
+
 
 	use {
 		'iamcco/markdown-preview.nvim',
@@ -93,17 +97,6 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		'rbgrouleff/bclose.vim',
-		cmd = 'Ranger'
-	}
-	use {
-		'francoiscabrol/ranger.vim',
-		cmd = 'Ranger'
-	}
-
-	use 'airblade/vim-rooter'
-
-	use {
 		'fatih/vim-go',
 		run = ':GoUpdateBinaries',
 		ft = 'go'
@@ -114,7 +107,7 @@ return require("packer").startup(function(use)
 		run = ':TSUpdate'
 	}
 
-	use 'NTBBloodbath/notifier.nvim'
+	use 'rcarriga/nvim-notify'
 
 	use {
 		'gelguy/wilder.nvim',
@@ -123,5 +116,10 @@ return require("packer").startup(function(use)
 
 	use {
 		'justinmk/vim-sneak'
+	}
+
+	use {
+		'voldikss/vim-floaterm',
+		cmd = 'FloatermNew'
 	}
 end)

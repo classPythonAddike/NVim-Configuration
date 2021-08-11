@@ -24,7 +24,11 @@ function InstallServers()
 	for _, server in ipairs(ensure_installed)
 	do
 		if not installed_servers[server] then
-			require"notifier".open({"Installing LSP Server for " .. server})
+			require"notify"(
+				"Installing LSP Server for " .. server,
+				vim.lsp.log_levels.INFO,
+				{title="LSP Server"}
+			)
 			lspinstall.install_server(server)
 		end
 	end
