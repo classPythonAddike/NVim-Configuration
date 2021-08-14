@@ -34,7 +34,7 @@ return require("packer").startup(function(use)
 
 	use {
 		'kyazdani42/nvim-tree.lua',
-		cmd = 'NvimTreeFindFile'
+		event = 'VimEnter'
 	}
 
 	use {
@@ -44,40 +44,42 @@ return require("packer").startup(function(use)
 
 	use {
 		'jiangmiao/auto-pairs',
-		ft = {'python', 'lua', 'vue', 'svelte', 'go', 'javascript', 'vim', 'css', 'html'}
+		ft = {'python', 'lua', 'vue', 'svelte', 'go', 'javascript', 'vim', 'css', 'html'},
+		after = "nvim-compe"
 	}
 
 	use 'kyazdani42/nvim-web-devicons'
-	use 'romgrk/barbar.nvim'
+	use {
+		'romgrk/barbar.nvim',
+		event = "VimEnter"
+	}
 	use {
 		'hoob3rt/lualine.nvim',
 	}
 
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/nvim-compe'
+	use "terrortylor/nvim-comment"
 
 	use {
 		'honza/vim-snippets',
-		ft = {'go', 'python', 'css', 'html', 'vue', 'svelte', 'lua', 'vim'}
+		ft = {'python', 'lua', 'vue', 'svelte', 'go', 'javascript', 'vim', 'css', 'html'}
 	}
 	use {
 		'SirVer/ultisnips',
-		ft = {'go', 'python', 'css', 'html', 'vue', 'svelte', 'lua', 'vim'}
+		ft = {'python', 'lua', 'vue', 'svelte', 'go', 'javascript', 'vim', 'css', 'html'}
 	}
 
-	use {
-		'ap/vim-css-color',
-		ft = {'css', 'html', 'vue', 'svelte'}
-	}
+	use "akinsho/nvim-toggleterm.lua"
+	
+	use 'norcalli/nvim-colorizer.lua'
 
 	use 'joshdick/onedark.vim'
 	use 'kristijanhusak/vim-hybrid-material'
 	use 'dracula/vim'
-	use {
-		"npxbr/gruvbox.nvim",
-		requires = {"rktjmp/lush.nvim"}
-	}
+	use 'shaunsingh/nord.nvim'
 
+	use 'yamatsum/nvim-cursorline'
 
 	use {
 		'iamcco/markdown-preview.nvim',
@@ -85,7 +87,7 @@ return require("packer").startup(function(use)
 		ft = 'markdown'
 	}
 
-	use 'hardcoreplayers/dashboard-nvim'
+	use 'glepnir/dashboard-nvim'
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
@@ -108,9 +110,11 @@ return require("packer").startup(function(use)
 
 	use {
 		'rbgrouleff/bclose.vim',
+		event = "VimEnter"
 	}
 	use {
 		'francoiscabrol/ranger.vim',
+		event = "VimEnter"
 	}
 
 	use 'rcarriga/nvim-notify'
@@ -121,12 +125,8 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		'justinmk/vim-sneak'
-	}
-
-	use {
-		'voldikss/vim-floaterm',
-		cmd = 'FloatermNew'
+		'justinmk/vim-sneak',
+		event = "VimEnter"
 	}
 
 	use {

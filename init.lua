@@ -12,6 +12,8 @@ local config_files = {
 	"options",
 	"nvimtree",
 	"treesitter-config",
+	"toggleterm-config",
+	"dashboard-config"
 }
 
 vim.cmd("source " .. config_path .. "commands.vim")
