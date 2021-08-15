@@ -32,10 +32,7 @@ return require("packer").startup(function(use)
     -- Packer can manage itself as an optional plugin
     use "wbthomason/packer.nvim"
 
-	use {
-		'kyazdani42/nvim-tree.lua',
-		event = 'VimEnter'
-	}
+	use 'kyazdani42/nvim-tree.lua'
 
 	use {
 		'lewis6991/gitsigns.nvim',
@@ -49,17 +46,45 @@ return require("packer").startup(function(use)
 	}
 
 	use 'kyazdani42/nvim-web-devicons'
-	use {
-		'romgrk/barbar.nvim',
-		event = "VimEnter"
-	}
-	use {
-		'hoob3rt/lualine.nvim',
-	}
+	use 'romgrk/barbar.nvim'
+	use 'hoob3rt/lualine.nvim'
 
 	use 'neovim/nvim-lspconfig'
-	use 'hrsh7th/nvim-compe'
-	use "terrortylor/nvim-comment"
+	use {
+		'hrsh7th/nvim-compe',
+		event = "InsertEnter",
+		config = function()
+			require'compe'.setup {
+				enabled = true;
+				autocomplete = true;
+				documentation = true;
+
+				source = {
+					path = true;
+					buffer = true;
+					calc = true;
+					nvim_lsp = true;
+					nvim_lua = true;
+					vsnip = false;
+					ultisnip = true;
+				};
+
+				documentation = {
+					border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'};
+				}
+			}
+		end
+	}
+	use {
+		"terrortylor/nvim-comment",
+		after = "nvim-compe",
+		config = function()
+			require('nvim_comment').setup{
+				marker_padding = true,
+				comment_empty = false,
+			}
+		end
+	}
 
 	use {
 		'honza/vim-snippets',
@@ -70,16 +95,58 @@ return require("packer").startup(function(use)
 		ft = {'python', 'lua', 'vue', 'svelte', 'go', 'javascript', 'vim', 'css', 'html'}
 	}
 
-	use "akinsho/nvim-toggleterm.lua"
+	use {
+		"akinsho/nvim-toggleterm.lua",
+		cmd = {"TermExec", "ToggleTerm"},
+		config = function()
+			require("toggleterm").setup{
+				hide_numbers = false,
+				shade_filetypes = { "lua", "vim", "python", "go" },
+				shade_terminals = true,
+				shading_factor = '3',
+				start_in_insert = true,
+				persist_size = true,
+				direction = 'float',
+				close_on_exit = true,
+
+				float_opts = {
+					border = 'curved',
+					width = 110,
+					height = 20,
+					winblend = 3
+				}
+			}
+		end
+	}
 	
-	use 'norcalli/nvim-colorizer.lua'
+	use {
+		'norcalli/nvim-colorizer.lua',
+		ft = { "svelte", "vue", "html", "css", "javascript" },
+		config = function()
+			local color_options = {
+				rgb_fn   = true;
+				hsl_fn   = true;
+				css      = true;
+				css_fn   = true;
+			}
 
+			require("colorizer").setup {
+				html = color_options;
+				css = color_options;
+				vue = color_options;
+				svelte = color_options;
+			}
+		end
+	}
 	use 'joshdick/onedark.vim'
-	use 'kristijanhusak/vim-hybrid-material'
-	use 'dracula/vim'
-	use 'shaunsingh/nord.nvim'
-
-	use 'yamatsum/nvim-cursorline'
+	use {
+		'dracula/vim',
+		cmd = "colorscheme"
+	}
+	use {
+		'shaunsingh/nord.nvim',
+		cmd = "colorscheme"
+	}
 
 	use {
 		'iamcco/markdown-preview.nvim',
@@ -108,15 +175,8 @@ return require("packer").startup(function(use)
 		run = ':TSUpdate'
 	}
 
-	use {
-		'rbgrouleff/bclose.vim',
-		event = "VimEnter"
-	}
-	use {
-		'francoiscabrol/ranger.vim',
-		event = "VimEnter"
-	}
-
+	use 'rbgrouleff/bclose.vim'
+	use 'francoiscabrol/ranger.vim'
 	use 'rcarriga/nvim-notify'
 
 	use {
@@ -124,11 +184,7 @@ return require("packer").startup(function(use)
 		run = ':UpdateRemotePlugins'
 	}
 
-	use {
-		'justinmk/vim-sneak',
-		event = "VimEnter"
-	}
-
+	use 'justinmk/vim-sneak'
 	use {
 		'tpope/vim-fugitive',
 		cmd = 'Git'

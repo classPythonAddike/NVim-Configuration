@@ -6,13 +6,11 @@ local config_files = {
 	"disable-builtins",
 	"plugins",
 	"keybinds",
-	"autocomplete",
 	"lsp-config",
 	"colorscheme",
 	"options",
 	"nvimtree",
 	"treesitter-config",
-	"toggleterm-config",
 	"dashboard-config"
 }
 

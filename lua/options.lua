@@ -29,19 +29,4 @@ require('lualine').setup{
 
 vim.g.UltiSnipsExpandTrigger = "<tab>"
 
-local color_options = {
-	rgb_fn   = true;
-	hsl_fn   = true;
-	css      = true;
-	css_fn   = true;
-}
 
-require("colorizer").setup {
-	"*";
-	html = color_options;
-	css = color_options;
-	vue = color_options;
-	svelte = color_options;
-}
-
-vim.g.cursorline_timeout = 100
