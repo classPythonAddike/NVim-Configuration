@@ -14,6 +14,8 @@ vim.opt.shiftwidth = 4
 vim.opt.smarttab = false
 vim.opt.smartindent = true
 vim.opt.cindent = false
+vim.opt.cursorline = true
+vim.opt.title = true
 
 vim.g.NERDTreeHijackNetrw = 0
 vim.g.ranger_replace_netrw = 1
@@ -26,7 +28,3 @@ require('lualine').setup{
 		theme = 'nord'
 	}
 }
-
-vim.g.UltiSnipsExpandTrigger = "<tab>"
-
-

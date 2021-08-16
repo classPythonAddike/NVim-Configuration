@@ -10,5 +10,3 @@ cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
 call wilder#set_option('modes', ['/', '?', ':'])
 
 autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
-
-set title
