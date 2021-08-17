@@ -1,17 +1,10 @@
 function GetDashboardDisplay(str, padding)
 	local line_length = (2 * padding) + string.len(str)
 
-	first_line = string.format("╭%s╮", string.rep("─", line_length))
-	last_line = string.format("╰%s╯", string.rep("─", line_length))
-
-	padding_line = string.format("│%s│", string.rep(" ", line_length))
-
-	middle_line = string.format(
-		"│%s%s%s│",
-		string.rep(" ", padding),
-		str,
-		string.rep(" ", padding)
-	)
+	local first_line = "╭" .. string.rep("─", line_length) .. "╮"
+	local last_line = string.format("╰%s╯", string.rep("─", line_length))
+	local padding_line = "│" .. string.rep(" ", line_length) .. "│"
+	local middle_line = "│" .. string.rep(" ", padding) .. str .. string.rep(" ", padding) .. "│"
 
 	return {first_line, padding_line, middle_line, padding_line, last_line}
 end

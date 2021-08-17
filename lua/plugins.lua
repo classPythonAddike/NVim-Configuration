@@ -32,10 +32,9 @@ return require("packer").startup(function(use)
 
 	use 'glepnir/dashboard-nvim'
 
-	use 'kyazdani42/nvim-web-devicons'
-	use 'romgrk/barbar.nvim'
+	use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 	use 'hoob3rt/lualine.nvim'
-
+	use 'TaDaa/vimade'
 	use 'rcarriga/nvim-notify'
 	use 'justinmk/vim-sneak'
 
@@ -44,6 +43,7 @@ return require("packer").startup(function(use)
 	use 'joshdick/onedark.vim'
 	use 'dracula/vim'
 	use 'shaunsingh/nord.nvim'
+	use 'romgrk/doom-one.vim'
 
 
 	use {
