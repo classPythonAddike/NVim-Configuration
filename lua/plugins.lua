@@ -34,7 +34,6 @@ return require("packer").startup(function(use)
 
 	use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 	use 'hoob3rt/lualine.nvim'
-	use 'TaDaa/vimade'
 	use 'rcarriga/nvim-notify'
 	use 'justinmk/vim-sneak'
 
@@ -84,11 +83,6 @@ return require("packer").startup(function(use)
 	use {
 		'jiangmiao/auto-pairs',
 		ft = {'python', 'lua', 'vue', 'svelte', 'go', 'vim', 'css'},
-	}
-	use {
-		'iamcco/markdown-preview.nvim',
-		run = 'cd app && npm install',
-		ft = 'markdown'
 	}
 	use {
 		'fatih/vim-go',
