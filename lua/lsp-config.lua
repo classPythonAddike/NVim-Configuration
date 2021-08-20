@@ -11,16 +11,10 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 require'lspconfig'.jedi_language_server.setup{
 	capabilities = capabilities
 }
-require'lspconfig'.gopls.setup{
-	capabilities = capabilities
-}
 require'lspconfig'.svelte.setup{
 	capabilities = capabilities
 }
 require'lspconfig'.vimls.setup{
-	capabilities = capabilities
-}
-require'lspconfig'.vuels.setup{
 	capabilities = capabilities
 }
 

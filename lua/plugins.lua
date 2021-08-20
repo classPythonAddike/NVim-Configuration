@@ -36,6 +36,7 @@ return require("packer").startup(function(use)
 	use 'hoob3rt/lualine.nvim'
 	use 'rcarriga/nvim-notify'
 	use 'justinmk/vim-sneak'
+	use '/home/pythonaddict/AllFolders/LuaProjects/formatter/'
 
 	use 'neovim/nvim-lspconfig'
 
@@ -83,11 +84,6 @@ return require("packer").startup(function(use)
 	use {
 		'jiangmiao/auto-pairs',
 		ft = {'python', 'lua', 'vue', 'svelte', 'go', 'vim', 'css'},
-	}
-	use {
-		'fatih/vim-go',
-		run = ':GoUpdateBinaries',
-		ft = 'go'
 	}
 
 

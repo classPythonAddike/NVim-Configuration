@@ -29,10 +29,6 @@ require('lualine').setup{
 	},
 }
 
-vim.g.vimade = {
-	enabletreesitter = 1
-}
-
 vim.opt.termguicolors = true
 
 require('bufferline').setup {
