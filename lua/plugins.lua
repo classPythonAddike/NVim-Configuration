@@ -9,24 +9,24 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 --- Check if a file or directory exists in this path
-local function require_plugin(plugin)
-    local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
+-- local function require_plugin(plugin)
+    -- local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
 
-    local plugin_path = plugin_prefix .. plugin .. "/"
-    local ok, err, code = os.rename(plugin_path, plugin_path)
-    if not ok then
-        if code == 13 then
+    -- local plugin_path = plugin_prefix .. plugin .. "/"
+    -- local ok, err, code = os.rename(plugin_path, plugin_path)
+    -- if not ok then
+        -- if code == 13 then
             -- Permission denied, but it exists
-            return true
-        end
-    end
-    if ok then vim.cmd("packadd " .. plugin) end
-    return ok, err, code
-end
+            -- return true
+        -- end
+    -- end
+    -- if ok then vim.cmd("packadd " .. plugin) end
+    -- return ok, err, code
+-- end
 
 vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto compile when there are changes in plugins.lua
 
-return require("packer").startup(function(use)
+return require("packer").startup({function(use)
 	-- Packer can manage itself as an optional plugin
 	use "wbthomason/packer.nvim"
 
@@ -44,6 +44,8 @@ return require("packer").startup(function(use)
 	use 'dracula/vim'
 	use 'shaunsingh/nord.nvim'
 	use 'romgrk/doom-one.vim'
+	-- use 'dominikduda/vim_current_word'
+	use 'yamatsum/nvim-cursorline'
 
 
 	use {
@@ -94,14 +96,31 @@ return require("packer").startup(function(use)
 		config = function() require('gitsigns').setup() end
 	}
 	use {
-		'ms-jpq/coq_nvim',
-		branch = 'coq',
-		event = "VimEnter",
-		config = function() vim.cmd(":COQnow") end,
-		requires = {
-			'ms-jpq/coq.artifacts',
-			branch = 'artifacts'
-		}
+		'hrsh7th/nvim-compe',
+		config = function()
+			require'compe'.setup {
+				enabled = true;
+				autocomplete = true;
+
+				source = {
+					path = true;
+					buffer = true;
+					calc = true;
+					nvim_lsp = true;
+					nvim_lua = true;
+					vsnip = false;
+					-- ultisnip = true;
+				};
+
+				documentation = {
+					border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'};
+				}
+			}
+		end
+	}
+	use {
+		"onsails/lspkind-nvim",
+		config = function() require("lspkind").init({with_text = false}) end
 	}
 	use {
 		"terrortylor/nvim-comment",
@@ -155,4 +174,9 @@ return require("packer").startup(function(use)
 			}
 		end
 	}
-end)
+end,
+config = {
+	display = {
+		open_fn = function() return require('packer.util').float({border = 'single'}) end,
+	}
+}})
