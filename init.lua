@@ -2,9 +2,20 @@ local home_dir = os.getenv("HOME")
 local config_path = home_dir .. "/.config/nvim/"
 local debug = true
 
+local execute = vim.api.nvim_command
+local fn = vim.fn
+
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
+if fn.empty(fn.glob(install_path)) > 0 then
+    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+    execute "packadd packer.nvim"
+end
+
+
 local config_files = {
-	"disable-builtins",
 	"plugins",
+	"disable-builtins",
 	"keybinds",
 	"lsp-config",
 	"colorscheme",
@@ -14,15 +25,13 @@ local config_files = {
 	"dashboard-config"
 }
 
-vim.cmd("source " .. config_path .. "commands.vim")
-
-local notifier = require"notify"
-
 for i = 1, #config_files, 1
 do
 	local status_ok, err = pcall(
 		require, config_files[i]
 	)
+
+	local notifier = require("notify")
 
 	if not status_ok then
 		notifier(
@@ -33,3 +42,6 @@ do
 		if debug then print(err) end
 	end
 end
+
+vim.cmd("source " .. config_path .. "commands.vim")
+
