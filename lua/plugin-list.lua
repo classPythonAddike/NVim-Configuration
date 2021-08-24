@@ -7,19 +7,18 @@ function M.PluginList()
 		'glepnir/dashboard-nvim',
 
 		{'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'},
-
 		'hoob3rt/lualine.nvim',
 		'rcarriga/nvim-notify',
 		'justinmk/vim-sneak',
-		'/home/pythonaddict/AllFolders/LuaProjects/formatter/',
+		-- For dev purposes
+		-- '/home/pythonaddict/AllFolders/LuaProjects/formatter/',
 
 		'neovim/nvim-lspconfig',
+		'kabouzeid/nvim-lspinstall',
 
-		'joshdick/onedark.vim',
-		'dracula/vim',
 		'shaunsingh/nord.nvim',
-		'romgrk/doom-one.vim',
-		'yamatsum/nvim-cursorline',
+		'folke/tokyonight.nvim',
+		'marko-cerovac/material.nvim',
 
 
 		{
@@ -87,13 +86,6 @@ function M.PluginList()
 		{
 			'tpope/vim-fugitive',
 			cmd = 'Git'
-		},
-		{
-			'francoiscabrol/ranger.vim',
-			requires = {
-				'rbgrouleff/bclose.vim'
-			},
-			cmd = {"Ranger", "RangerCurrentDirectory"}
 		},
 
 

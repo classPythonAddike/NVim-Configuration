@@ -1,7 +1,5 @@
-parsers = require("treesitter-parsers")
-
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = parsers.parsers,
+	ensure_installed = require("treesitter-parsers").parsers,
 	ignore_install = {},
 	highlight = {
 		enable = true,

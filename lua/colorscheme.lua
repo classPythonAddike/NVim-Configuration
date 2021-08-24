@@ -1,16 +1,22 @@
-vim.g.dracula_colorterm = 1
-vim.g.onedark_terminal_italics = 1
-
 vim.opt.termguicolors = true
-vim.g.doom_one_terminal_colors = true
 
-vim.g.enable_bold_font = 1
-vim.g.enable_italic_font = 1
-vim.g.hybrid_transparent_background = 1
+vim.g.material_style = 'palenight'
+vim.g.material_italic_comments = true
+vim.g.material_italic_keywords = true
+vim.g.material_italic_functions = true
+vim.g.material_italic_variables = false
+vim.g.material_contrast = false
+vim.g.material_lighter_contrast = true
+vim.g.material_borders = true
+vim.g.material_disable_background = false
 
-vim.cmd("colorscheme onedark")
+vim.g.tokyonight_style = "night"
 
-vim.cmd [[
-	let g:cursorword_highlight = 0
-	hi CursorWord cterm=bold ctermbg=red guibg=#464646
-]]
+-- require('material').set()
+vim.cmd [[ colorscheme tokyonight ]]
+
+require('lualine').setup{
+	options = {
+		theme = 'tokyonight'
+	}
+}

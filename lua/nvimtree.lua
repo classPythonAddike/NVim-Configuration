@@ -1,13 +1,13 @@
 vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache', '__pycache__' }
 
-vim.g.nvim_tree_width = 30
+vim.g.nvim_tree_width = 32
 vim.g.nvim_tree_gitignore = 0
 vim.g.nvim_tree_auto_open = 0
 vim.g.nvim_tree_auto_close = 1
 vim.g.nvim_tree_quit_on_open = 0
 vim.g.nvim_tree_follow = 1
 vim.g.nvim_tree_indent_markers = 0
-vim.g.nvim_tree_git_hl = 0
+vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_root_folder_modifier = ':~'
 vim.g.nvim_tree_tab_open = 1
@@ -28,7 +28,7 @@ vim.g.nvim_tree_special_files = {
 }
 
 vim.g.nvim_tree_show_icons = {
-	['git'] = 1,
+	['git'] = 0,
 	['folders'] = 1,
 	['files'] = 1,
 	['folder_arrows'] = 1,

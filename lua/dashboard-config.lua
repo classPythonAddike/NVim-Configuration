@@ -9,16 +9,9 @@ function GetDashboardDisplay(str, padding)
 	return {first_line, padding_line, middle_line, padding_line, last_line}
 end
 
-vim.cmd [[
-	let g:len_plug = len(globpath('/home/pythonaddict/.local/share/nvim/site/pack/packer/start/', '*', 0, 1))
-	let g:len_unloaded = len(globpath('/home/pythonaddict/.local/share/nvim/site/pack/packer/opt/', '*', 0, 1))
-]]
-
 vim.g.dashboard_default_executive ='telescope'
 vim.g.dashboard_custom_header = GetDashboardDisplay(
-	"Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code.",
-	10
+	"Let us remember: One book, one pen, one child, and one teacher can change the world.",
+	5
 )
-vim.g.dashboard_custom_footer = {
-	"Found " .. vim.g.len_plug + vim.g.len_unloaded .. " installed plugins"
-}
+vim.g.dashboard_custom_footer = {"The best preparation for tomorrow is doing your best today."}
