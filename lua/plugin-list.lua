@@ -6,20 +6,55 @@ function M.PluginList()
 
 		'glepnir/dashboard-nvim',
 
-		{'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'},
-		'hoob3rt/lualine.nvim',
 		'rcarriga/nvim-notify',
 		'justinmk/vim-sneak',
-		-- For dev purposes
-		-- '/home/pythonaddict/AllFolders/LuaProjects/formatter/',
 
 		'neovim/nvim-lspconfig',
 		'kabouzeid/nvim-lspinstall',
 
-		'shaunsingh/nord.nvim',
-		'folke/tokyonight.nvim',
-		'marko-cerovac/material.nvim',
+		{
+			'mhartington/formatter.nvim',
+		},
 
+		'folke/tokyonight.nvim',
+
+		{
+			'romgrk/barbar.nvim',
+			requires = 'kyazdani42/nvim-web-devicons'
+		},
+		{
+			'hoob3rt/lualine.nvim',
+			config = function()
+				require('lualine').setup{
+					options = {
+						theme = 'tokyonight'
+					}
+				}
+			end
+		},
+
+		-- Unused colorschemes, only delays startup
+		{
+			'marko-cerovac/material.nvim',
+			cmd = "ABC", -- Dummy command
+			config = function()
+				vim.g.material_style = 'palenight'
+				vim.g.material_italic_comments = true
+				vim.g.material_italic_keywords = true
+				vim.g.material_italic_functions = true
+				vim.g.material_italic_variables = false
+				vim.g.material_contrast = false
+				vim.g.material_lighter_contrast = true
+				vim.g.material_borders = true
+				vim.g.material_disable_background = false
+
+				-- require("material").set()
+			end
+		},
+		{
+			'shaunsingh/nord.nvim',
+			cmd = "ABC" -- Dummy command
+		},
 
 		{
 			'nvim-treesitter/nvim-treesitter',
@@ -27,7 +62,19 @@ function M.PluginList()
 		},
 		{
 			'gelguy/wilder.nvim',
-			run = ':UpdateRemotePlugins'
+			run = ':UpdateRemotePlugins',
+			event = "VimEnter",
+			config = function()
+				vim.cmd [[
+					call wilder#enable_cmdline_enter()
+					set wildcharm=<Tab>
+					cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
+					cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
+
+					" only / and ? are enabled by default
+					call wilder#set_option('modes', ['/', '?', ':'])
+				]]
+			end
 		},
 
 
@@ -93,12 +140,17 @@ function M.PluginList()
 			'jiangmiao/auto-pairs',
 			ft = {'python', 'lua', 'vue', 'svelte', 'go', 'vim', 'css'},
 		},
+		{
+			'fatih/vim-go',
+			ft = {'go'},
+			run = ":GoUpdateBinaries"
+		},
 
 
 		{
 			'lewis6991/gitsigns.nvim',
 			requires = {'nvim-lua/plenary.nvim'},
-			event = "InsertEnter",
+			-- event = "InsertEnter",
 			config = function() require('gitsigns').setup() end
 		},
 
