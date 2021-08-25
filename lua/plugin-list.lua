@@ -4,41 +4,41 @@ function M.PluginList()
 	return {
 		"wbthomason/packer.nvim",
 
-		'glepnir/dashboard-nvim',
+		"glepnir/dashboard-nvim",
 
-		'rcarriga/nvim-notify',
-		'justinmk/vim-sneak',
+		"rcarriga/nvim-notify",
+		"justinmk/vim-sneak",
 
-		'neovim/nvim-lspconfig',
-		'kabouzeid/nvim-lspinstall',
+		"neovim/nvim-lspconfig",
+		"kabouzeid/nvim-lspinstall",
 
 		{
-			'mhartington/formatter.nvim',
+			"mhartington/formatter.nvim",
 		},
 
-		'folke/tokyonight.nvim',
+		"folke/tokyonight.nvim",
 
 		{
-			'romgrk/barbar.nvim',
-			requires = 'kyazdani42/nvim-web-devicons'
+			"romgrk/barbar.nvim",
+			requires = "kyazdani42/nvim-web-devicons",
 		},
 		{
-			'hoob3rt/lualine.nvim',
+			"hoob3rt/lualine.nvim",
 			config = function()
-				require('lualine').setup{
+				require("lualine").setup({
 					options = {
-						theme = 'tokyonight'
-					}
-				}
-			end
+						theme = "tokyonight",
+					},
+				})
+			end,
 		},
 
 		-- Unused colorschemes, only delays startup
 		{
-			'marko-cerovac/material.nvim',
+			"marko-cerovac/material.nvim",
 			cmd = "ABC", -- Dummy command
 			config = function()
-				vim.g.material_style = 'palenight'
+				vim.g.material_style = "palenight"
 				vim.g.material_italic_comments = true
 				vim.g.material_italic_keywords = true
 				vim.g.material_italic_functions = true
@@ -49,23 +49,23 @@ function M.PluginList()
 				vim.g.material_disable_background = false
 
 				-- require("material").set()
-			end
+			end,
 		},
 		{
-			'shaunsingh/nord.nvim',
-			cmd = "ABC" -- Dummy command
+			"shaunsingh/nord.nvim",
+			cmd = "ABC", -- Dummy command
 		},
 
 		{
-			'nvim-treesitter/nvim-treesitter',
-			run = ':TSUpdate'
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
 		},
 		{
-			'gelguy/wilder.nvim',
-			run = ':UpdateRemotePlugins',
+			"gelguy/wilder.nvim",
+			run = ":UpdateRemotePlugins",
 			event = "VimEnter",
 			config = function()
-				vim.cmd [[
+				vim.cmd([[
 					call wilder#enable_cmdline_enter()
 					set wildcharm=<Tab>
 					cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
@@ -73,130 +73,129 @@ function M.PluginList()
 
 					" only / and ? are enabled by default
 					call wilder#set_option('modes', ['/', '?', ':'])
-				]]
-			end
+				]])
+			end,
 		},
 
-
 		{
-			'hrsh7th/nvim-compe',
+			"hrsh7th/nvim-compe",
 			event = "InsertEnter",
 			config = function()
-				require'compe'.setup {
-					enabled = true;
-					autocomplete = true;
+				require("compe").setup({
+					enabled = true,
+					autocomplete = true,
 
 					source = {
-						path = true;
-						buffer = true;
-						calc = true;
-						nvim_lsp = true;
-						nvim_lua = true;
-						vsnip = false;
-					};
+						path = true,
+						buffer = true,
+						calc = true,
+						nvim_lsp = true,
+						nvim_lua = true,
+						vsnip = false,
+					},
 
 					documentation = {
-						border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'};
-					}
-				}
-			end
+						border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+					},
+				})
+			end,
 		},
 		{
 			"onsails/lspkind-nvim",
 			event = "InsertEnter",
-			config = function() require("lspkind").init({with_text = false}) end
+			config = function()
+				require("lspkind").init({ with_text = false })
+			end,
 		},
 
-
 		{
-			'kyazdani42/nvim-tree.lua',
-			cmd = "NvimTreeFindFile"
+			"kyazdani42/nvim-tree.lua",
+			cmd = "NvimTreeFindFile",
 		},
 		{
 			"terrortylor/nvim-comment",
 			cmd = "CommentToggle",
 			config = function()
-				require('nvim_comment').setup{
+				require("nvim_comment").setup({
 					marker_padding = true,
 					comment_empty = false,
-				}
-			end
+				})
+			end,
 		},
 		{
-			'nvim-telescope/telescope.nvim',
+			"nvim-telescope/telescope.nvim",
 			requires = {
-				{'nvim-lua/popup.nvim'},
-				{'nvim-lua/plenary.nvim'}
+				{ "nvim-lua/popup.nvim" },
+				{ "nvim-lua/plenary.nvim" },
 			},
-			cmd = 'Telescope'
+			cmd = "Telescope",
 		},
 		{
-			'tpope/vim-fugitive',
-			cmd = 'Git'
+			"tpope/vim-fugitive",
+			cmd = "Git",
 		},
 
-
 		{
-			'jiangmiao/auto-pairs',
-			ft = {'python', 'lua', 'vue', 'svelte', 'go', 'vim', 'css'},
+			"jiangmiao/auto-pairs",
+			ft = { "python", "lua", "vue", "svelte", "go", "vim", "css" },
 		},
 		{
-			'fatih/vim-go',
-			ft = {'go'},
-			run = ":GoUpdateBinaries"
+			"fatih/vim-go",
+			ft = { "go" },
+			run = ":GoUpdateBinaries",
 		},
 
-
 		{
-			'lewis6991/gitsigns.nvim',
-			requires = {'nvim-lua/plenary.nvim'},
+			"lewis6991/gitsigns.nvim",
+			requires = { "nvim-lua/plenary.nvim" },
 			-- event = "InsertEnter",
-			config = function() require('gitsigns').setup() end
+			config = function()
+				require("gitsigns").setup()
+			end,
 		},
-
 
 		{
 			"akinsho/nvim-toggleterm.lua",
-			cmd = {"TermExec", "ToggleTerm"},
+			cmd = { "TermExec", "ToggleTerm" },
 			config = function()
-				require("toggleterm").setup{
+				require("toggleterm").setup({
 					hide_numbers = false,
 					shade_filetypes = { "lua", "vim", "python", "go" },
 					shade_terminals = true,
-					shading_factor = '3',
+					shading_factor = "3",
 					start_in_insert = true,
 					persist_size = true,
-					direction = 'float',
+					direction = "float",
 					close_on_exit = true,
 
 					float_opts = {
-						border = 'curved',
+						border = "curved",
 						width = 110,
 						height = 20,
-						winblend = 3
-					}
-				}
-			end
+						winblend = 3,
+					},
+				})
+			end,
 		},
 		{
-			'norcalli/nvim-colorizer.lua',
+			"norcalli/nvim-colorizer.lua",
 			ft = { "svelte", "vue", "html", "css", "javascript" },
 			config = function()
 				local color_options = {
-					rgb_fn   = true;
-					hsl_fn   = true;
-					css      = true;
-					css_fn   = true;
+					rgb_fn = true,
+					hsl_fn = true,
+					css = true,
+					css_fn = true,
 				}
 
-				require("colorizer").setup {
-					html = color_options;
-					css = color_options;
-					vue = color_options;
-					svelte = color_options;
-				}
-			end
-		}
+				require("colorizer").setup({
+					html = color_options,
+					css = color_options,
+					vue = color_options,
+					svelte = color_options,
+				})
+			end,
+		},
 	}
 end
 

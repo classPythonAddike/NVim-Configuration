@@ -50,6 +50,15 @@ require("formatter").setup({
 					stdin = false
 				}
 			end
+		},
+		lua = {
+			function()
+				return {
+					exe = "stylua",
+					args = { vim.api.nvim_buf_get_name(0) },
+					stdin = false
+				}
+			end
 		}
 	}
 })
@@ -57,6 +66,6 @@ require("formatter").setup({
 vim.api.nvim_exec([[
 	augroup FormatAutogroup
 		autocmd!
-		autocmd BufWritePost *.py,*.vue,*.svelte FormatWrite
+		autocmd BufWritePost *.py,*.vue,*.svelte,*.lua FormatWrite
 	augroup END
 ]], true)
