@@ -1,5 +1,3 @@
-local home_dir = os.getenv("HOME")
-local config_path = home_dir .. "/.config/nvim/"
 local debug = true
 
 local execute = vim.api.nvim_command
@@ -42,6 +40,3 @@ do
 		if debug then print(err) end
 	end
 end
-
-vim.cmd("source " .. config_path .. "commands.vim")
-
