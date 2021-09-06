@@ -23,3 +23,5 @@ vim.cmd([[
 	command! W :w " Sometimes I type :W instead of :w
 	command! Q :q
 ]])
+
+vim.g.python_host_prog = "/usr/bin/python3"

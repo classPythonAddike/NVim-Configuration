@@ -12,9 +12,7 @@ function M.PluginList()
 		"neovim/nvim-lspconfig",
 		"kabouzeid/nvim-lspinstall",
 
-		{
-			"mhartington/formatter.nvim",
-		},
+		"mhartington/formatter.nvim",
 
 		"folke/tokyonight.nvim",
 
