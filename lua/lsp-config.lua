@@ -61,7 +61,7 @@ vim.api.nvim_exec(
 	[[
 		augroup FormatAutogroup
 			autocmd!
-			autocmd BufWritePost *.py,*.vue,*.svelte,*.lua FormatWrite
+			autocmd BufWritePost *.vue,*.svelte,*.lua FormatWrite
 		augroup END
 	]],
 	true
