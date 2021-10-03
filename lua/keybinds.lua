@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap("n", "<C-Q>", ":bd<CR>", { noremap = true }) -- BufferClose isnt the correct command to close a buffer ;)
+vim.api.nvim_set_keymap("n", "<C-Q>", ":bd<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "<C-S>", ":w<CR>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-S>", "<Esc>:w<CR>", { noremap = true })
