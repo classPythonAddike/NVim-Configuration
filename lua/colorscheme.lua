@@ -1,6 +1,7 @@
 vim.opt.termguicolors = true
 
-vim.g.tokyonight_style = "night"
+vim.g.nord_borders = true
+vim.g.nord_disable_background = true
+vim.g.nord_enable_sidebar_background = true
 
--- require('material').set()
-vim.cmd([[ colorscheme tokyonight ]])
+vim.cmd([[ colorscheme nord ]])

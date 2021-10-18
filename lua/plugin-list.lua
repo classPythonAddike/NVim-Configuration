@@ -12,9 +12,12 @@ function M.PluginList()
 		"neovim/nvim-lspconfig",
 		"kabouzeid/nvim-lspinstall",
 
-		"mhartington/formatter.nvim",
+		"shaunsingh/nord.nvim",
 
-		"folke/tokyonight.nvim",
+		{
+			"kyazdani42/nvim-tree.lua",
+			requires = "kyazdani42/nvim-web-devicons",
+		},
 
 		{
 			"romgrk/barbar.nvim",
@@ -25,35 +28,11 @@ function M.PluginList()
 			config = function()
 				require("lualine").setup({
 					options = {
-						theme = "tokyonight",
+						theme = "nord",
 					},
 				})
 			end,
 		},
-
-		-- Unused colorschemes, only delays startup
-		{
-			"marko-cerovac/material.nvim",
-			cmd = "ABC", -- Dummy command
-			config = function()
-				vim.g.material_style = "palenight"
-				vim.g.material_italic_comments = true
-				vim.g.material_italic_keywords = true
-				vim.g.material_italic_functions = true
-				vim.g.material_italic_variables = false
-				vim.g.material_contrast = false
-				vim.g.material_lighter_contrast = true
-				vim.g.material_borders = true
-				vim.g.material_disable_background = false
-
-				-- require("material").set()
-			end,
-		},
-		{
-			"shaunsingh/nord.nvim",
-			cmd = "ABC", -- Dummy command
-		},
-
 		{
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
@@ -104,11 +83,6 @@ function M.PluginList()
 			config = function()
 				require("lspkind").init({ with_text = false })
 			end,
-		},
-
-		{
-			"kyazdani42/nvim-tree.lua",
-			cmd = "NvimTreeFindFile",
 		},
 		{
 			"terrortylor/nvim-comment",

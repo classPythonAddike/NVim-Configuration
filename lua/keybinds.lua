@@ -1,3 +1,8 @@
+vim.cmd [[
+	let mapleader = "\<Space>"
+	set timeoutlen=500
+]]
+
 vim.api.nvim_set_keymap("n", "<C-Q>", ":bd<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "<C-S>", ":w<CR>", { noremap = true })
@@ -13,8 +18,6 @@ function Build()
 
 	if ft == "go" then
 		vim.cmd(":TermExec cmd='go build .'")
-	elseif ft == "vue" then
-		vim.cmd(":TermExec cmd='npm run build'")
 	else
 		vim.cmd(":echom \"No build configurations set for filetype '" .. ft .. "'!\"")
 	end
@@ -32,14 +35,14 @@ function Run()
 	end
 end
 
-vim.api.nvim_set_keymap("n", "<F2>", ":bprevious<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<F3>", ":bnext<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<F4>", ":blast<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>j", ":bprevious<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>k", ":bnext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>l", ":blast<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>h", ":bfirst<CR>", { noremap = true })
 
-vim.api.nvim_set_keymap("n", "<F5>", ":lua Build()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<F6>", ":lua Run()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>b", ":lua Build()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>r", ":lua Run()<CR>", { noremap = true })
 
-vim.api.nvim_set_keymap("n", "<F7>", ":CommentToggle<CR>", { noremap = true })
-vim.api.nvim_set_keymap("i", "<F7>", "<Esc>:CommentToggle<CR>i", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>c", ":CommentToggle<CR>", { noremap = true })
 
-vim.api.nvim_set_keymap("n", "<F8>", ":NvimTreeFindFile<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>f", ":NvimTreeOpen<CR>", { noremap = true })

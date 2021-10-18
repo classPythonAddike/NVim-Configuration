@@ -30,7 +30,7 @@ for i = 1, #config_files, 1 do
 	if not status_ok then
 		notifier(
 			"Error in " .. config_files[i] .. ".lua",
-			vim.lsp.log_levels.ERROR,
+			vim.lsp.log_levels.WARN,
 			{ title = "Error in configuration!" }
 		)
 		if debug then
