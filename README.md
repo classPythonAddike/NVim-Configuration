@@ -1,5 +1,7 @@
 # Neovim Config
 
+> #### NOTE: This configuration is now outdated. For my up-to-date config, check out my [dotfile repo](https://github.com/classPythonAddike/dotfiles)
+
 <p align="center">
 	<img src="/Screenshots/markdown.png">
 </p>
